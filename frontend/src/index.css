@@ -1008,7 +1008,12 @@ html.light .glass-card.stats-card-emerald h3 {
    ========================================================================== */
 .calendar-day-cell {
   transition: all 0.2s ease-in-out !important;
-  min-height: 95px !important;
+  min-height: 60px !important;
+}
+@media (min-width: 640px) {
+  .calendar-day-cell {
+    min-height: 95px !important;
+  }
 }
 
 html.light .calendar-day-cell {

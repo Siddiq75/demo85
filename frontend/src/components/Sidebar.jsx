@@ -4,7 +4,7 @@ import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
 import { Scissors, Users, FileText, IndianRupee, Calendar, BarChart3, Settings, LogOut, MessageSquare } from 'lucide-react';
 
-export default function Sidebar({ activePage, onNavigate }) {
+export default function Sidebar({ activePage, onNavigate, isOpen, setIsOpen }) {
   const { logout } = useAuth();
   const { t } = useLanguage();
   const { theme } = useTheme();
@@ -22,13 +22,20 @@ export default function Sidebar({ activePage, onNavigate }) {
   const handleLogout = () => {
     logout();
     onNavigate('home');
+    if (setIsOpen) setIsOpen(false);
   };
 
   return (
-    <aside className="w-64 bg-gray-950/75 backdrop-blur-xl border-r border-white/5 h-screen flex flex-col fixed left-0 top-0 z-30">
+    <aside className={`w-64 bg-gray-950/75 backdrop-blur-xl border-r border-white/5 h-screen flex flex-col fixed left-0 top-0 z-30 transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
       
       {/* Brand Header */}
-      <div className="p-6 border-b border-white/5 flex items-center space-x-3 cursor-pointer" onClick={() => onNavigate('tailor_dashboard')}>
+      <div 
+        className="p-6 border-b border-white/5 flex items-center space-x-3 cursor-pointer" 
+        onClick={() => {
+          onNavigate('tailor_dashboard');
+          if (setIsOpen) setIsOpen(false);
+        }}
+      >
         <div className="w-9 h-9 rounded-full bg-purple-600 text-white flex items-center justify-center shadow-lg shadow-purple-600/10 flex-shrink-0">
           <Scissors className="w-4.5 h-4.5" />
         </div>
@@ -67,7 +74,10 @@ export default function Sidebar({ activePage, onNavigate }) {
           return (
             <button
               key={item.id}
-              onClick={() => onNavigate(item.id)}
+              onClick={() => {
+                onNavigate(item.id);
+                if (setIsOpen) setIsOpen(false);
+              }}
               className={btnClass}
             >
               <Icon className={iconClass} />

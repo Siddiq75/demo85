@@ -1,8 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Sidebar from './Sidebar';
 import Navbar from './Navbar';
 
 export default function Layout({ children, activePage, onNavigate }) {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
+
   return (
     <div className="min-h-screen flex bg-gray-950 font-sans bg-stitch-grid relative overflow-hidden">
       
@@ -32,13 +34,21 @@ export default function Layout({ children, activePage, onNavigate }) {
         />
       </svg>
 
-      {/* Sidebar - fixed */}
-      <Sidebar activePage={activePage} onNavigate={onNavigate} />
+      {/* Sidebar - responsive */}
+      <Sidebar activePage={activePage} onNavigate={onNavigate} isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
       
+      {/* Mobile Sidebar backdrop overlay */}
+      {sidebarOpen && (
+        <div 
+          className="fixed inset-0 bg-black/60 backdrop-blur-sm z-20 lg:hidden"
+          onClick={() => setSidebarOpen(false)}
+        ></div>
+      )}
+
       {/* Content wrapper */}
-      <div className="flex-grow flex flex-col pl-64 min-h-screen relative z-10">
+      <div className="flex-grow flex flex-col pl-0 lg:pl-64 min-h-screen relative z-10 w-full min-w-0">
         {/* Navbar */}
-        <Navbar />
+        <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
         
         {/* Main page viewport */}
         <main className="flex-grow p-8 overflow-y-auto max-w-[1600px] w-full mx-auto">

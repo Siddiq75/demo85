@@ -402,7 +402,7 @@ export default function CustomerPortal() {
                           ></div>
 
                           {/* Step 1: Order Created */}
-                          <div className="flex flex-col items-center text-center space-y-1.5 z-10">
+                          <div className="flex flex-col items-center text-center space-y-1.5 z-10 flex-1 min-w-0">
                             <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
                               order.status === 'Pending' 
                                 ? 'bg-gradient-to-br from-purple-500 to-indigo-600 border-purple-400 text-white scale-110 shadow-lg shadow-purple-500/20' 
@@ -410,45 +410,45 @@ export default function CustomerPortal() {
                             }`}>
                               <Clock className="w-4 h-4" />
                             </div>
-                            <span className={`text-[10px] font-black uppercase tracking-wider ${order.status === 'Pending' ? 'text-purple-600 dark:text-purple-400' : 'text-gray-450 dark:text-gray-500'}`}>
+                            <span className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-center block max-w-[70px] sm:max-w-none leading-tight ${order.status === 'Pending' ? 'text-purple-600 dark:text-purple-400' : 'text-gray-450 dark:text-gray-500'}`}>
                               Order Created
                             </span>
                           </div>
 
                           {/* Step 2: Stitching Started */}
-                          <div className="flex flex-col items-center text-center space-y-1.5 z-10">
+                          <div className="flex flex-col items-center text-center space-y-1.5 z-10 flex-1 min-w-0">
                             <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
                               order.status === 'In Progress'
-                                ? 'bg-gradient-to-br from-purple-500 to-indigo-600 border-purple-400 text-white scale-110 shadow-lg shadow-purple-500/20'
+                                ? 'bg-gradient-to-br from-purple-500 to-indigo-650 border-purple-400 text-white scale-110 shadow-lg shadow-purple-500/20'
                                 : ['In Progress', 'Ready', 'Delivered'].includes(order.status)
                                   ? 'bg-purple-600 border-purple-500 text-white'
                                   : 'bg-purple-600/5 dark:bg-gray-900 border-purple-550/10 dark:border-white/10 text-gray-400 dark:text-gray-500'
                             }`}>
                               <Scissors className="w-4 h-4" />
                             </div>
-                            <span className={`text-[10px] font-black uppercase tracking-wider ${
+                            <span className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-center block max-w-[70px] sm:max-w-none leading-tight ${
                               order.status === 'In Progress' 
                                 ? 'text-purple-600 dark:text-purple-400' 
                                 : ['In Progress', 'Ready', 'Delivered'].includes(order.status)
                                   ? 'text-gray-600 dark:text-gray-400'
-                                  : 'text-gray-450 dark:text-gray-500'
+                                  : 'text-gray-455 dark:text-gray-500'
                             }`}>
                               Stitching Started
                             </span>
                           </div>
 
                           {/* Step 3: Ready */}
-                          <div className="flex flex-col items-center text-center space-y-1.5 z-10">
+                          <div className="flex flex-col items-center text-center space-y-1.5 z-10 flex-1 min-w-0">
                             <div className={`w-8 h-8 rounded-full border flex items-center justify-center transition-all ${
                               order.status === 'Ready'
-                                ? 'bg-gradient-to-br from-purple-500 to-indigo-600 border-purple-400 text-white scale-110 shadow-lg shadow-purple-500/20'
+                                ? 'bg-gradient-to-br from-purple-500 to-indigo-650 border-purple-400 text-white scale-110 shadow-lg shadow-purple-500/20'
                                 : ['Ready', 'Delivered'].includes(order.status)
                                   ? 'bg-purple-600 border-purple-500 text-white'
                                   : 'bg-purple-600/5 dark:bg-gray-900 border-purple-550/10 dark:border-white/10 text-gray-400 dark:text-gray-500'
                             }`}>
                               <CheckCircle className="w-4 h-4" />
                             </div>
-                            <span className={`text-[10px] font-black uppercase tracking-wider ${
+                            <span className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-center block max-w-[70px] sm:max-w-none leading-tight ${
                               order.status === 'Ready' 
                                 ? 'text-purple-600 dark:text-purple-400' 
                                 : ['Ready', 'Delivered'].includes(order.status)

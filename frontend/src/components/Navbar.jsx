@@ -2,9 +2,9 @@ import React from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
-import { User, Languages, Sun, Moon, Bell, Search } from 'lucide-react';
+import { User, Languages, Sun, Moon, Bell, Search, Menu } from 'lucide-react';
 
-export default function Navbar() {
+export default function Navbar({ toggleSidebar }) {
   const { user } = useAuth();
   const { t, language, changeLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
@@ -16,13 +16,22 @@ export default function Navbar() {
     : nameParts[0][0]?.toUpperCase() || 'T';
 
   return (
-    <header className="glass-panel h-16 border-b border-white/5 flex items-center justify-between px-8 sticky top-0 z-20">
+    <header className="glass-panel h-16 border-b border-white/5 flex items-center justify-between px-4 sm:px-8 sticky top-0 z-20">
       
-      {/* Greetings */}
-      <div>
-        <span className="text-lg font-semibold text-gray-400">
-          Welcome back, <strong className="text-white">{user?.name || 'Tailor'}</strong>
-        </span>
+      {/* Greetings & Hamburger */}
+      <div className="flex items-center">
+        <button
+          onClick={toggleSidebar}
+          className="p-2 mr-2 text-gray-450 hover:text-white rounded-xl hover:bg-white/5 lg:hidden cursor-pointer flex items-center justify-center shrink-0"
+        >
+          <Menu className="w-5.5 h-5.5" />
+        </button>
+        
+        <div className="hidden sm:block text-left truncate mr-2">
+          <span className="text-sm md:text-base font-semibold text-gray-400">
+            Welcome back, <strong className="text-white">{user?.name || 'Tailor'}</strong>
+          </span>
+        </div>
       </div>
 
       {/* Tools */}
