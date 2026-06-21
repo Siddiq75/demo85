@@ -10,6 +10,7 @@ export default function Sidebar({ activePage, onNavigate, isOpen, setIsOpen }) {
   const menuItems = [
     { id: 'tailor_dashboard', label: t('dashboard'), icon: Scissors },
     { id: 'tailor_customers', label: t('customers'), icon: Users },
+    { id: 'tailor_chats', label: t('chats') || 'Chats', icon: MessageSquare },
     { id: 'tailor_orders', label: t('orders'), icon: FileText },
     { id: 'tailor_payments', label: t('payments'), icon: IndianRupee },
     { id: 'tailor_deliveries', label: t('schedule'), icon: Calendar },

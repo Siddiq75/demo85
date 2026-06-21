@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
-import { ShoppingBag, CreditCard, Bell, Ruler, Clock, CheckCircle, Truck, RefreshCw, Scissors, ArrowLeft, Store, MapPin, AlertTriangle, Search, User } from 'lucide-react';
+import { ShoppingBag, CreditCard, Bell, Ruler, Clock, CheckCircle, Truck, RefreshCw, Scissors, ArrowLeft, Store, MapPin, AlertTriangle, Search, User, MessageSquare, Send, Check, CheckCheck } from 'lucide-react';
 import { API_URL, getMediaUrl } from '../context/AuthContext';
 
 export default function CustomerPortal() {
@@ -17,6 +17,77 @@ export default function CustomerPortal() {
   const [loadingDetails, setLoadingDetails] = useState(false);
   const [showWelcome, setShowWelcome] = useState(false);
   const [shopFilter, setShopFilter] = useState('');
+
+  // Chat/Conversation state
+  const [showChatModal, setShowChatModal] = useState(false);
+  const [chatMessages, setChatMessages] = useState([]);
+  const [chatInputText, setChatInputText] = useState('');
+  const [unreadChatCount, setUnreadChatCount] = useState(0);
+  const chatMessagesEndRef = useRef(null);
+  const chatPollIntervalRef = useRef(null);
+
+  const fetchChatHistory = async () => {
+    if (!selectedTailor) return;
+    try {
+      const res = await axios.get(`${API_URL}/chats/history?tailor_id=${selectedTailor.id}&customer_phone=${user.phone}`);
+      setChatMessages(res.data);
+      
+      // Mark read if modal is open
+      if (showChatModal) {
+        await axios.post(`${API_URL}/chats/read?tailor_id=${selectedTailor.id}&customer_phone=${user.phone}&reader=customer`);
+        setUnreadChatCount(0);
+      } else {
+        // Calculate unread count (sender is 'tailor' and is_read is false)
+        const unread = res.data.filter(m => m.sender === 'tailor' && !m.is_read).length;
+        setUnreadChatCount(unread);
+      }
+    } catch (err) {
+      console.error("Error fetching chat history:", err);
+    }
+  };
+
+  const handleSendChatMessage = async (e) => {
+    e.preventDefault();
+    if (!chatInputText.trim() || !selectedTailor) return;
+    const text = chatInputText.trim();
+    setChatInputText('');
+    try {
+      const res = await axios.post(`${API_URL}/chats/send`, {
+        tailor_id: selectedTailor.id,
+        customer_phone: user.phone,
+        sender: 'customer',
+        message_text: text
+      });
+      setChatMessages(prev => [...prev, res.data]);
+    } catch (err) {
+      console.error("Error sending chat message:", err);
+    }
+  };
+
+  useEffect(() => {
+    if (selectedTailor) {
+      fetchChatHistory();
+      if (chatPollIntervalRef.current) clearInterval(chatPollIntervalRef.current);
+      chatPollIntervalRef.current = setInterval(fetchChatHistory, 3000);
+    } else {
+      setChatMessages([]);
+      setUnreadChatCount(0);
+      if (chatPollIntervalRef.current) clearInterval(chatPollIntervalRef.current);
+    }
+    return () => {
+      if (chatPollIntervalRef.current) clearInterval(chatPollIntervalRef.current);
+    };
+  }, [selectedTailor, showChatModal]);
+
+  useEffect(() => {
+    chatMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [chatMessages]);
+
+  const formatChatTime = (isoString) => {
+    if (!isoString) return '';
+    const d = new Date(isoString);
+    return d.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  };
 
   const filteredTailors = tailors.filter(tailor => {
     const shopName = (tailor.shop_name || `${tailor.name}'s Shop`).toLowerCase();
@@ -603,6 +674,116 @@ export default function CustomerPortal() {
 
           </div>
         </div>
+      )}
+
+      {/* Floating Chat Button for Customer Portal */}
+      {selectedTailor && dashboardData && dashboardData.is_registered && (
+        <>
+          <button
+            onClick={() => setShowChatModal(true)}
+            className="fixed bottom-6 right-6 w-14 h-14 bg-purple-600 hover:bg-purple-500 text-white rounded-full flex items-center justify-center shadow-lg shadow-purple-600/30 transition-transform duration-300 hover:scale-105 active:scale-95 cursor-pointer z-40"
+          >
+            <div className="relative">
+              <MessageSquare className="w-6 h-6" />
+              {unreadChatCount > 0 && (
+                <span className="absolute -top-2.5 -right-2.5 bg-red-500 text-white font-black text-[9px] w-4.5 h-4.5 rounded-full flex items-center justify-center border-2 border-slate-950">
+                  {unreadChatCount}
+                </span>
+              )}
+            </div>
+          </button>
+
+          {/* Chat modal/drawer popup */}
+          {showChatModal && (
+            <div className="fixed inset-0 bg-gray-950/80 backdrop-blur-sm z-50 overflow-hidden flex justify-end p-4 md:p-6 text-left">
+              <div 
+                className="w-full max-w-md bg-gray-900 border border-white/10 rounded-3xl flex flex-col h-full overflow-hidden shadow-2xl relative animate-fade-in text-left"
+              >
+                {/* Header */}
+                <div className="p-4 border-b border-white/5 flex items-center justify-between bg-slate-950/40">
+                  <div className="flex items-center space-x-3 text-left">
+                    <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-xs shadow-inner">
+                      {selectedTailor.shop_name?.charAt(0).toUpperCase() || selectedTailor.name?.charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-black text-white font-heading leading-tight">
+                        {selectedTailor.shop_name || selectedTailor.name}
+                      </h4>
+                      <span className="text-[10px] text-purple-400 font-extrabold block mt-0.5">
+                        Tailor Shop Chat
+                      </span>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => setShowChatModal(false)}
+                    className="text-gray-400 hover:text-white font-bold p-1 bg-white/5 rounded-lg border border-white/5 transition"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                {/* Message Feed */}
+                <div className="flex-grow overflow-y-auto p-4 space-y-3 bg-slate-950/20">
+                  {chatMessages.length === 0 ? (
+                    <div className="flex flex-col items-center justify-center h-full text-gray-500 space-y-2 select-none">
+                      <MessageSquare className="w-8 h-8 text-gray-700" />
+                      <p className="text-xs">{t('noMessagesYet')}</p>
+                    </div>
+                  ) : (
+                    chatMessages.map(msg => {
+                      const isCustomer = msg.sender === 'customer';
+                      return (
+                        <div 
+                          key={msg.id} 
+                          className={`flex ${isCustomer ? 'justify-end' : 'justify-start'}`}
+                        >
+                          <div 
+                            className={`max-w-[75%] px-3.5 py-2 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
+                              isCustomer 
+                                ? 'bg-purple-600 text-white rounded-tr-none' 
+                                : 'bg-white/10 text-gray-200 rounded-tl-none border border-white/5'
+                            }`}
+                          >
+                            <p className="pr-10 whitespace-pre-wrap break-words leading-relaxed">
+                              {msg.message_text}
+                            </p>
+                            
+                            <div className="absolute right-2 bottom-1.5 flex items-center space-x-1 text-[9px] text-white/50 select-none">
+                              <span>{formatChatTime(msg.timestamp)}</span>
+                              {isCustomer && (
+                                msg.is_read 
+                                  ? <CheckCheck className="w-3 h-3 text-emerald-450" /> 
+                                  : <Check className="w-3 h-3 text-white/40" />
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })
+                  )}
+                  <div ref={chatMessagesEndRef} />
+                </div>
+
+                {/* Input Footer */}
+                <form onSubmit={handleSendChatMessage} className="p-4 border-t border-white/5 bg-slate-950/40 flex items-center space-x-3">
+                  <input
+                    type="text"
+                    value={chatInputText}
+                    onChange={(e) => setChatInputText(e.target.value)}
+                    placeholder={t('typeMessage') || 'Type a message...'}
+                    className="flex-grow bg-white/5 border border-white/5 rounded-2xl px-4 py-2.5 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50"
+                  />
+                  <button
+                    type="submit"
+                    className="w-9 h-9 rounded-xl bg-purple-600 hover:bg-purple-500 text-white flex items-center justify-center transition-all shadow-md shadow-purple-600/10 cursor-pointer active:scale-95 shrink-0"
+                  >
+                    <Send className="w-4 h-4" />
+                  </button>
+                </form>
+              </div>
+            </div>
+          )}
+        </>
       )}
     </div>
   );

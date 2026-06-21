@@ -8,7 +8,7 @@ from app.database import engine, Base, add_columns_if_missing
 from app.scheduler import start_scheduler, shutdown_scheduler
 
 # Import routes
-from app.routes import auth, customers, orders, payments, deliveries, analytics, customer_dashboard, notifications
+from app.routes import auth, customers, orders, payments, deliveries, analytics, customer_dashboard, notifications, chats
 
 # Auto-create tables on startup (Supabase or local SQLite)
 Base.metadata.create_all(bind=engine)
@@ -53,6 +53,7 @@ app.include_router(deliveries.router, prefix="/api")
 app.include_router(analytics.router, prefix="/api")
 app.include_router(customer_dashboard.router, prefix="/api")
 app.include_router(notifications.router, prefix="/api")
+app.include_router(chats.router, prefix="/api")
 
 @app.get("/")
 def read_root():

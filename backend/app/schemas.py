@@ -290,5 +290,32 @@ class CustomerTailorDetailsResponse(BaseModel):
     payments: List[PaymentResponse] = []
     notifications: List[NotificationResponse] = []
 
+class MessageCreate(BaseModel):
+    tailor_id: int
+    customer_phone: str
+    sender: str
+    message_text: str
+
+class MessageResponse(BaseModel):
+    id: int
+    tailor_id: int
+    customer_phone: str
+    sender: str
+    message_text: str
+    timestamp: datetime
+    is_read: bool
+
+    class Config:
+        from_attributes = True
+
+class ConversationListItem(BaseModel):
+    customer_id: Optional[int] = None
+    name: str
+    phone: str
+    last_message: Optional[str] = None
+    last_message_timestamp: Optional[datetime] = None
+    last_message_sender: Optional[str] = None
+    unread_count: int
+
 
 

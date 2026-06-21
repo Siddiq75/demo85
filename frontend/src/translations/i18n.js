@@ -220,7 +220,13 @@ export const translations = {
     dailyScheduler: "Daily Report Scheduler",
     dailySchedulerDesc: "Sends an automated morning summary of deliveries and payments directly to your WhatsApp at 08:00 AM.",
     triggerSuccess: "Daily notifications batch execution triggered successfully!",
-    messagePreview: "Daily Report Template Preview"
+    messagePreview: "Daily Report Template Preview",
+
+    // Chats
+    chats: "Chats",
+    typeMessage: "Type a message...",
+    noMessagesYet: "No messages yet. Start a conversation!",
+    chatSearchPlaceholder: "Search customers..."
   },
   hi: {
     // Common
@@ -443,7 +449,13 @@ export const translations = {
     dailyScheduler: "दैनिक रिपोर्ट शेड्यूलर",
     dailySchedulerDesc: "सुबह 08:00 बजे दर्जी के व्हाट्सएप पर सीधे डिलीवरी और भुगतान का एक स्वचालित सारांश भेजता है।",
     triggerSuccess: "दैनिक सूचनाएं बैच निष्पादन सफलतापूर्वक शुरू किया गया!",
-    messagePreview: "दैनिक रिपोर्ट संदेश का पूर्वावलोकन"
+    messagePreview: "दैनिक रिपोर्ट संदेश का पूर्वावलोकन",
+
+    // Chats
+    chats: "चैट",
+    typeMessage: "संदेश लिखें...",
+    noMessagesYet: "कोई संदेश नहीं। बातचीत शुरू करें!",
+    chatSearchPlaceholder: "ग्राहकों को खोजें..."
   },
   te: {
     // Common
@@ -666,6 +678,12 @@ export const translations = {
     dailyScheduler: "రోజువారీ నివేదిక షెడ్యూలర్",
     dailySchedulerDesc: "ప్రతిరోజూ ఉదయం 08:00 గంటలకు దర్జీల వాట్సాప్‌కు నేరుగా డెలివరీలు మరియు బ్యాలెన్స్ వసూళ్ల సారాంశాన్ని పంపుతుంది.",
     triggerSuccess: "రోజువారీ నోటిఫికేషన్‌ల రన్ విజయవంతంగా ప్రారంభించబడింది!",
-    messagePreview: "రోజువారీ నివేదిక సందేశం ప్రివ్యూ"
+    messagePreview: "రోజువారీ నివేదిక సందేశం ప్రివ్యూ",
+
+    // Chats
+    chats: "చాట్లు",
+    typeMessage: "సందేశాన్ని టైప్ చేయండి...",
+    noMessagesYet: "ఇంకా సందేశాలు లేవు. సంభాషణను ప్రారంభించండి!",
+    chatSearchPlaceholder: "కస్టమర్లను శోధించండి..."
   }
 };

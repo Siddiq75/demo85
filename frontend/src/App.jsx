@@ -13,6 +13,7 @@ import SettingsPage from './pages/Settings';
 import Layout from './components/Layout';
 import CustomerLogin from './pages/CustomerLogin';
 import CustomerPortal from './pages/CustomerPortal';
+import ChatsPage from './pages/ChatsPage';
 
 export default function App() {
   const { user, loading } = useAuth();
@@ -63,6 +64,8 @@ export default function App() {
         return <Dashboard onNavigate={navigateTo} />;
       case 'tailor_customers':
         return <CustomersPage />;
+      case 'tailor_chats':
+        return <ChatsPage />;
       case 'tailor_orders':
         return <OrdersPage />;
       case 'tailor_payments':
