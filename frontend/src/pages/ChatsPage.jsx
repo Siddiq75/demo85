@@ -292,13 +292,13 @@ export default function ChatsPage() {
                         className={`flex ${isTailor ? 'justify-end' : 'justify-start'}`}
                       >
                         <div 
-                          className={`max-w-[70%] px-4 py-2.5 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
+                          className={`max-w-[70%] min-w-[95px] px-4 pt-2.5 pb-6 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
                             isTailor 
-                              ? 'bg-gradient-to-br from-purple-650 to-indigo-650 text-white rounded-tr-none shadow-md shadow-purple-650/10 chat-bubble-tailor' 
+                              ? 'bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-tr-none shadow-md shadow-purple-600/10 chat-bubble-tailor' 
                               : 'bg-slate-200/85 dark:bg-white/10 text-slate-800 dark:text-gray-200 rounded-tl-none border border-slate-300/30 dark:border-white/5 chat-bubble-customer'
                           }`}
                         >
-                          <p className="pr-12 whitespace-pre-wrap break-words leading-relaxed font-sans">
+                          <p className="whitespace-pre-wrap break-words leading-relaxed font-sans">
                             {msg.message_text}
                           </p>
                           
@@ -354,7 +354,7 @@ export default function ChatsPage() {
                 />
                 <button
                   type="submit"
-                  className="w-12 h-12 rounded-2xl bg-gradient-to-r from-purple-650 to-indigo-650 hover:from-purple-500 hover:to-indigo-550 text-white flex items-center justify-center transition-all shadow-md shadow-purple-500/15 cursor-pointer active:scale-95 shrink-0"
+                  className="w-12 h-12 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-550 text-white flex items-center justify-center transition-all shadow-md shadow-purple-500/15 cursor-pointer active:scale-95 shrink-0"
                 >
                   <Send className="w-4.5 h-4.5" />
                 </button>

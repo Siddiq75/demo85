@@ -684,7 +684,7 @@ export default function CustomerPortal() {
         <>
           <div className="fixed bottom-6 right-6 z-40 flex items-center justify-center">
             {/* Pulsing glow ripples */}
-            <span className="absolute w-14 h-14 rounded-full bg-purple-650/30 dark:bg-purple-500/20 animate-ping pointer-events-none"></span>
+            <span className="absolute w-14 h-14 rounded-full bg-purple-600/30 dark:bg-purple-500/20 animate-ping pointer-events-none"></span>
             <span className="absolute w-16 h-16 rounded-full bg-pink-500/10 animate-[ping_2s_infinite_1s] pointer-events-none"></span>
             
             <button
@@ -751,13 +751,13 @@ export default function CustomerPortal() {
                           className={`flex ${isCustomer ? 'justify-end' : 'justify-start'}`}
                         >
                           <div 
-                            className={`max-w-[75%] px-3.5 py-2.5 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
+                            className={`max-w-[75%] min-w-[95px] px-3.5 pt-2.5 pb-6 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
                               isCustomer 
-                                ? 'bg-gradient-to-br from-purple-650 to-indigo-650 text-white rounded-tr-none shadow-md shadow-purple-650/15 chat-bubble-tailor' 
+                                ? 'bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-tr-none shadow-md shadow-purple-600/15 chat-bubble-tailor' 
                                 : 'bg-white/10 text-gray-255 rounded-tl-none border border-white/5 chat-bubble-customer'
                             }`}
                           >
-                            <p className="pr-10 whitespace-pre-wrap break-words leading-relaxed">
+                            <p className="whitespace-pre-wrap break-words leading-relaxed">
                               {msg.message_text}
                             </p>
                             
