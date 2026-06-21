@@ -1755,6 +1755,61 @@ html.light .chart-tooltip-text {
   }
 }
 
+/* ==========================================================================
+   PREMIUM LANDING PAGE HERO TEXT ANIMATIONS
+   ========================================================================== */
+
+/* Letter-by-letter reveal animation */
+.animate-letter-reveal {
+  animation: revealLetter 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes revealLetter {
+  0% {
+    opacity: 0;
+    transform: translateY(10px) scale(0.85);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* Phrase reveal animation */
+.animate-phrase-reveal {
+  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Intelligent reveal animation */
+.animate-intelligent-reveal {
+  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 1.3s forwards;
+}
+
+/* Intelligent pulse glow animation */
+.animate-intelligent-glow {
+  animation: intelligentGlow 2.5s ease-in-out infinite alternate;
+}
+
+@keyframes intelligentGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 3px rgba(168, 85, 247, 0.3)) drop-shadow(0 0 8px rgba(59, 130, 246, 0.2));
+  }
+  50% {
+    filter: drop-shadow(0 0 12px rgba(168, 85, 247, 0.8)) drop-shadow(0 0 22px rgba(236, 72, 153, 0.6)) drop-shadow(0 0 32px rgba(59, 130, 246, 0.45));
+  }
+}
+
 
 
 
