@@ -21,6 +21,9 @@ export const translations = {
     // Landing Page
     heroTitle: "Making Every Stitch",
     heroTitleAccent: "Intelligent.",
+    heroWord1: "Intelligent.",
+    heroWord2: "Smarter.",
+    heroWord3: "Personal.",
     heroSubtitle: "The all-in-one platform for modern tailors — orders, measurements, customers and insights, beautifully unified.",
     enterTailorDesc: "Access tailor dashboard, measurements charts, orders registry",
     enterCustomerDesc: "Track stitching progress, delivery dates, measurements and collections",
@@ -244,6 +247,9 @@ export const translations = {
     // Landing Page
     heroTitle: "हर सिलाई को बनाएं",
     heroTitleAccent: "बुद्धिमान।",
+    heroWord1: "बुद्धिमान।",
+    heroWord2: "सुलभ।",
+    heroWord3: "व्यक्तिगत।",
     heroSubtitle: "आधुनिक दर्जी के लिए ऑल-इन-वन प्लेटफ़ॉर्म — ऑर्डर, माप, ग्राहक और अंतर्दृष्टि, खूबसूरती से एकीकृत।",
     enterTailorDesc: "दर्जी डैशबोर्ड, माप चार्ट, ऑर्डर रजिस्टर तक पहुंचें",
     enterCustomerDesc: "सिलाई की प्रगति, डिलीवरी की तारीखें, माप और संग्रह को ट्रैक करें",
@@ -467,6 +473,9 @@ export const translations = {
     // Landing Page
     heroTitle: "ప్రతి కుట్టును",
     heroTitleAccent: "తెలివైనదిగా చేయడం.",
+    heroWord1: "తెలివైనదిగా చేయడం.",
+    heroWord2: "సులభతరం చేయడం.",
+    heroWord3: "వ్యక్తిగతం చేయడం.",
     heroSubtitle: "ఆధునిక టైలర్‌ల కోసం ఆల్-ఇన్-వన్ ప్లాట్‌ఫారమ్ — ఆర్డర్‌లు, కొలతలు, కస్టమర్‌లు మరియు ఆర్డర్ వివరాలు, అందంగా ఏకీకృతం చేయబడ్డాయి.",
     enterTailorDesc: "టైలర్ డాష్‌బోర్డ్, కొలతల చార్ట్‌లు, ఆర్డర్‌ల రిజిస్టర్‌ను యాక్సెస్ చేయండి",
     enterCustomerDesc: "కుట్టు పురోగతి, డెలివరీ తేదీలు, కొలతలు మరియు సేకరణలను ట్రాక్ చేయండి",

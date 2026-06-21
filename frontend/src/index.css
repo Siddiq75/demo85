@@ -138,38 +138,22 @@ input::-webkit-calendar-picker-indicator:hover {
   animation: fadeIn 0.4s ease forwards;
 }
 
-@keyframes slideLine1 {
-  0%, 45% {
-    transform: translateX(-12px);
-  }
-  50%, 95% {
-    transform: translateX(12px);
-  }
-  100% {
-    transform: translateX(-12px);
-  }
-}
-
-@keyframes slideLine2 {
-  0%, 45% {
-    transform: translateX(12px);
-  }
-  50%, 95% {
-    transform: translateX(-12px);
+@keyframes wordSlideUpIn {
+  0% {
+    opacity: 0;
+    transform: translateY(70%) skewY(1deg);
+    filter: blur(2px);
   }
   100% {
-    transform: translateX(12px);
+    opacity: 1;
+    transform: translateY(0) skewY(0deg);
+    filter: blur(0);
   }
 }
 
-.animate-slide-line1 {
+.animate-word-change {
   display: inline-block;
-  animation: slideLine1 4s ease-in-out infinite;
-}
-
-.animate-slide-line2 {
-  display: inline-block;
-  animation: slideLine2 4s ease-in-out infinite;
+  animation: wordSlideUpIn 0.55s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* Custom Thematic Sewing & Stitch Patterns */
