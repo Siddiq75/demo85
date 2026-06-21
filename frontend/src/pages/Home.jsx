@@ -344,7 +344,7 @@ export default function Home({ onNavigate }) {
       </div>
 
       {/* Header */}
-      <header className="sticky top-0 z-50 py-5 px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-40 flex justify-between items-center bg-white/30 backdrop-blur-md border-b border-white/40">
+      <header className="sticky top-0 z-50 py-5 px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 flex justify-between items-center bg-white/30 backdrop-blur-md border-b border-white/40">
         
         {/* Brand Header */}
         <div className="flex items-center space-x-3.5 cursor-pointer group" onClick={() => onNavigate('home')}>
@@ -362,13 +362,13 @@ export default function Home({ onNavigate }) {
           </div>
         </div>
  
-        {/* Header Options - Hidden on mobile, flex on md and above */}
-        <div className="hidden md:flex items-center space-x-3 md:space-x-5">
+        {/* Header Options - Hidden on mobile, flex on lg and above */}
+        <div className="hidden lg:flex items-center space-x-2.5 xl:space-x-4">
           
           {/* Features Navigation Link */}
           <a
             href="#features"
-            className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-purple-600 transition duration-200 cursor-pointer select-none"
+            className="flex items-center space-x-2 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-3 py-2.5 xl:px-4 xl:py-3 text-xs xl:text-sm font-extrabold text-slate-700 hover:text-purple-600 transition duration-200 cursor-pointer select-none"
           >
             <Compass className="w-5 h-5 text-purple-600 animate-spin" style={{ animationDuration: '8s' }} />
             <span>{t('navFeatures')}</span>
@@ -377,7 +377,7 @@ export default function Home({ onNavigate }) {
           {/* About Us Navigation Link */}
           <a
             href="#about"
-            className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-pink-600 transition duration-200 cursor-pointer select-none"
+            className="flex items-center space-x-2 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-3 py-2.5 xl:px-4 xl:py-3 text-xs xl:text-sm font-extrabold text-slate-700 hover:text-pink-600 transition duration-200 cursor-pointer select-none"
           >
             <Award className="w-5 h-5 text-pink-500" />
             <span>{t('navAbout')}</span>
@@ -387,7 +387,7 @@ export default function Home({ onNavigate }) {
           <div className="relative">
             <button
               onClick={() => setIsLangOpen(!isLangOpen)}
-              className="flex items-center space-x-2.5 bg-white/60 border border-slate-200/80 hover:bg-white/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 transition cursor-pointer select-none"
+              className="flex items-center space-x-2 bg-white/60 border border-slate-200/80 hover:bg-white/80 rounded-2xl px-3 py-2.5 xl:px-4 xl:py-3 text-xs xl:text-sm font-extrabold text-slate-700 transition cursor-pointer select-none"
             >
               <Globe className="w-5 h-5 text-purple-600" />
               <span className="hidden sm:inline">
@@ -427,7 +427,7 @@ export default function Home({ onNavigate }) {
 
           <button
             onClick={() => onNavigate('customer_login')}
-            className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-pink-600 transition cursor-pointer select-none"
+            className="flex items-center space-x-2 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-3 py-2.5 xl:px-4 xl:py-3 text-xs xl:text-sm font-extrabold text-slate-700 hover:text-pink-600 transition cursor-pointer select-none"
           >
             <Smartphone className="w-5 h-5 text-pink-500" />
             <span>{t('customerPortal')}</span>
@@ -435,7 +435,7 @@ export default function Home({ onNavigate }) {
 
           <button
             onClick={() => onNavigate('login')}
-            className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-purple-600 transition cursor-pointer select-none"
+            className="flex items-center space-x-2 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-3 py-2.5 xl:px-4 xl:py-3 text-xs xl:text-sm font-extrabold text-slate-700 hover:text-purple-600 transition cursor-pointer select-none"
           >
             <Scissors className="w-5 h-5 text-purple-600" />
             <span>{t('tailorPortal')}</span>
@@ -445,7 +445,7 @@ export default function Home({ onNavigate }) {
         {/* Mobile Hamburger Menu Button - Visible only on mobile/tablet */}
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          className="md:hidden p-3 bg-white/60 border border-slate-200/80 hover:bg-white/80 rounded-2xl text-slate-700 hover:text-purple-600 transition cursor-pointer select-none"
+          className="lg:hidden p-3 bg-white/60 border border-slate-200/80 hover:bg-white/80 rounded-2xl text-slate-700 hover:text-purple-600 transition cursor-pointer select-none"
           aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X className="w-5.5 h-5.5" /> : <Menu className="w-5.5 h-5.5" />}
@@ -454,7 +454,7 @@ export default function Home({ onNavigate }) {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[120] bg-white/98 backdrop-blur-xl flex flex-col p-6 pb-12 overflow-y-auto animate-fade-in md:hidden">
+        <div className="fixed inset-0 z-[120] bg-white/98 backdrop-blur-xl flex flex-col p-6 pb-12 overflow-y-auto animate-fade-in lg:hidden">
           {/* Top Bar inside Overlay */}
           <div className="flex justify-between items-center mb-10">
             {/* Brand Logo in Drawer */}
@@ -559,7 +559,7 @@ export default function Home({ onNavigate }) {
       )}
 
       {/* Main content wrapper */}
-      <main className="flex-grow flex flex-col justify-center px-4 sm:px-16 lg:px-24 xl:px-32 2xl:px-40 py-10 w-full relative z-10 space-y-24 md:space-y-32">
+      <main className="flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-10 w-full relative z-10 space-y-24 md:space-y-32">
         
         {/* Hero Section */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full pt-4 md:pt-10">
@@ -855,7 +855,7 @@ export default function Home({ onNavigate }) {
       )}
 
       {/* Footer Features Bar */}
-      <footer className="border-t border-slate-200/50 bg-white/20 backdrop-blur-md py-8 px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-40 relative z-10">
+      <footer className="border-t border-slate-200/50 bg-white/20 backdrop-blur-md py-8 px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 relative z-10">
         <div className="flex flex-col md:flex-row items-stretch justify-between gap-6 md:gap-0 w-full">
           
           {/* Feature 1 */}
