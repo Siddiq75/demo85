@@ -559,7 +559,7 @@ export default function Home({ onNavigate }) {
       )}
 
       {/* Main content wrapper */}
-      <main className="flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-10 w-full relative z-10 space-y-24 md:space-y-32">
+      <main className="flex-grow flex flex-col justify-start px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 md:py-10 w-full relative z-10 space-y-24 md:space-y-32">
         
         {/* Hero Section */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full pt-4 md:pt-10">
