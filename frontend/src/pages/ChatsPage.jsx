@@ -294,8 +294,8 @@ export default function ChatsPage() {
                         <div 
                           className={`max-w-[70%] px-4 py-2.5 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
                             isTailor 
-                              ? 'bg-gradient-to-br from-purple-600 to-indigo-650 text-white rounded-tr-none shadow-md shadow-purple-650/10' 
-                              : 'bg-slate-200/85 dark:bg-white/10 text-slate-800 dark:text-gray-200 rounded-tl-none border border-slate-300/30 dark:border-white/5'
+                              ? 'bg-gradient-to-br from-purple-650 to-indigo-650 text-white rounded-tr-none shadow-md shadow-purple-650/10 chat-bubble-tailor' 
+                              : 'bg-slate-200/85 dark:bg-white/10 text-slate-800 dark:text-gray-200 rounded-tl-none border border-slate-300/30 dark:border-white/5 chat-bubble-customer'
                           }`}
                         >
                           <p className="pr-12 whitespace-pre-wrap break-words leading-relaxed font-sans">
@@ -317,6 +317,30 @@ export default function ChatsPage() {
                     );
                   })
                 )}
+              </div>
+
+              {/* Quick replies templates */}
+              <div className="px-4 py-2 border-t border-slate-200/80 dark:border-white/5 bg-slate-50/50 dark:bg-slate-950/15 flex items-center space-x-2 overflow-x-auto whitespace-nowrap scrollbar-none">
+                <span className="text-[10px] uppercase font-black tracking-wider text-slate-450 dark:text-slate-500 mr-2 flex-shrink-0">
+                  Quick Reply:
+                </span>
+                {[
+                  "Your measurements have been updated! 📏",
+                  "Stitching has started on your order. 🪡",
+                  "Good news! Your order is ready for pickup! 🎉",
+                  "Could you please share your reference design sketch? 🎨",
+                  "Please confirm your delivery date. 🗓️",
+                  "Outstanding balance statement details sent. 💰"
+                ].map((tpl, i) => (
+                  <button
+                    key={i}
+                    type="button"
+                    onClick={() => setInputText(tpl)}
+                    className="px-3 py-1 bg-white dark:bg-white/5 border border-slate-200 dark:border-white/5 hover:border-purple-500 hover:text-purple-600 dark:hover:text-purple-400 rounded-full text-[11px] font-bold text-slate-600 dark:text-slate-350 transition duration-200 flex-shrink-0 cursor-pointer active:scale-95 shadow-sm"
+                  >
+                    {tpl}
+                  </button>
+                ))}
               </div>
 
               {/* Input Footer */}

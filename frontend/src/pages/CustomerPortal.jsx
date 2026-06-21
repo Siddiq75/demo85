@@ -753,8 +753,8 @@ export default function CustomerPortal() {
                           <div 
                             className={`max-w-[75%] px-3.5 py-2.5 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
                               isCustomer 
-                                ? 'bg-gradient-to-br from-purple-650 to-indigo-650 text-white rounded-tr-none shadow-md shadow-purple-650/15' 
-                                : 'bg-white/10 text-gray-255 rounded-tl-none border border-white/5'
+                                ? 'bg-gradient-to-br from-purple-650 to-indigo-650 text-white rounded-tr-none shadow-md shadow-purple-650/15 chat-bubble-tailor' 
+                                : 'bg-white/10 text-gray-255 rounded-tl-none border border-white/5 chat-bubble-customer'
                             }`}
                           >
                             <p className="pr-10 whitespace-pre-wrap break-words leading-relaxed">

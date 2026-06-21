@@ -1755,6 +1755,22 @@ html.light .chart-tooltip-text {
   }
 }
 
+/* Custom Chat Bubble legibility overrides for tailor and customer messaging */
+.chat-bubble-tailor, 
+.chat-bubble-tailor * {
+  color: #ffffff !important;
+}
+
+.chat-bubble-customer,
+.chat-bubble-customer * {
+  color: #1e293b !important;
+}
+
+.dark .chat-bubble-customer,
+.dark .chat-bubble-customer * {
+  color: #f1f5f9 !important;
+}
+
 
 
 
