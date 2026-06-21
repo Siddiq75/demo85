@@ -562,7 +562,7 @@ export default function Home({ onNavigate }) {
       <main className="flex-grow flex flex-col justify-start px-6 md:px-12 lg:px-16 xl:px-20 2xl:px-24 py-6 md:py-10 w-full relative z-10 space-y-24 md:space-y-32">
         
         {/* Hero Section */}
-        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full pt-4 md:pt-10">
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start w-full pt-4 md:pt-10">
           
           {/* Left Column: Headings & Private Portals */}
           <div className="lg:col-span-6 xl:col-span-7 space-y-8 flex flex-col items-start z-10 text-left">
