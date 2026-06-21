@@ -586,7 +586,7 @@ export default function Home({ onNavigate }) {
             </div>
 
             {/* Private Portal Access Channels - First to left, second to right */}
-            <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
               
               {/* Card 1: Enter Tailor Workspace */}
               <div 
@@ -728,7 +728,7 @@ export default function Home({ onNavigate }) {
             </div>
 
             {/* Mission / Vision Cards */}
-            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6 w-full">
               
               {/* Mission Card */}
               <div className="light-glass-card p-5 sm:p-7 md:p-8 rounded-[2rem] border border-purple-500/10 hover:border-purple-500/20 transition-all duration-300 flex flex-col justify-between">
