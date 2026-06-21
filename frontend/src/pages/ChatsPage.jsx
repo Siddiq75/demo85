@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import { Search, Send, MessageSquare, Phone, Check, CheckCheck, Ruler, ShoppingBag, Clock, ChevronRight, X, User } from 'lucide-react';
+import { Search, Send, MessageSquare, Phone, Check, CheckCheck, Ruler, ShoppingBag, Clock, ChevronRight, X, User, ArrowLeft } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { API_URL, getMediaUrl } from '../context/AuthContext';
@@ -183,7 +183,7 @@ export default function ChatsPage() {
     <div className="flex h-[calc(100vh-10rem)] rounded-3xl border border-slate-200/80 dark:border-white/5 overflow-hidden glass-panel text-left animate-fade-in relative z-10">
       
       {/* LEFT PANEL: CONVERSATIONS LIST */}
-      <div className="w-80 border-r border-slate-200/80 dark:border-white/5 flex flex-col h-full bg-slate-50/50 dark:bg-slate-950/20">
+      <div className={`${selectedChat ? 'hidden md:flex' : 'flex'} w-full md:w-80 border-r border-slate-200/80 dark:border-white/5 flex-col h-full bg-slate-50/50 dark:bg-slate-950/20 flex-shrink-0`}>
         {/* Search header */}
         <div className="p-4 border-b border-slate-200/80 dark:border-white/5 space-y-3 bg-slate-100/30 dark:bg-transparent">
           <h3 className="text-lg font-black text-slate-800 dark:text-white font-heading tracking-wide flex items-center justify-between">
@@ -266,7 +266,7 @@ export default function ChatsPage() {
       </div>
 
       {/* RIGHT PANEL: CHAT WINDOW */}
-      <div className="flex-grow flex h-full relative overflow-hidden bg-slate-50/30 dark:bg-slate-950/10">
+      <div className={`${selectedChat ? 'flex' : 'hidden md:flex'} flex-grow h-full relative overflow-hidden bg-slate-50/30 dark:bg-slate-950/10`}>
         {selectedChat ? (
           <>
             <div className="flex-grow flex flex-col h-full min-w-0 relative z-10">
@@ -276,6 +276,13 @@ export default function ChatsPage() {
               {/* Header */}
               <div className="p-4 border-b border-slate-200/80 dark:border-white/5 flex items-center justify-between bg-slate-100/90 dark:bg-slate-900/40 backdrop-blur-md shadow-sm">
                 <div className="flex items-center space-x-3 text-left">
+                  <button
+                    onClick={() => setSelectedChat(null)}
+                    className="block md:hidden p-1.5 hover:bg-slate-200 dark:hover:bg-white/10 rounded-xl mr-1 text-slate-550 hover:text-slate-800 dark:text-slate-450 dark:hover:text-white transition cursor-pointer"
+                    title="Back to Chats List"
+                  >
+                    <ArrowLeft className="w-5 h-5" />
+                  </button>
                   <div 
                     className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-650 flex items-center justify-center font-bold text-xs shadow-md border border-purple-400/20"
                     style={{ color: '#ffffff' }}
@@ -394,7 +401,7 @@ export default function ChatsPage() {
 
             {/* CRM & ORDER INSIGHTS SIDEBAR */}
             {showCustomerInfo && (
-              <div className="w-80 border-l border-slate-200/80 dark:border-white/5 h-full flex flex-col overflow-hidden bg-slate-100/90 dark:bg-slate-955/80 backdrop-blur-md animate-fade-in relative z-20 shadow-2xl">
+              <div className="w-full sm:w-80 absolute lg:relative inset-y-0 right-0 z-30 border-l border-slate-200/80 dark:border-white/5 h-full flex flex-col overflow-hidden bg-slate-100/95 dark:bg-slate-955/90 backdrop-blur-md animate-fade-in shadow-2xl">
                 <div className="p-4 border-b border-slate-200/80 dark:border-white/5 flex justify-between items-center bg-slate-200/50 dark:bg-white/5">
                   <h4 className="text-xs font-black text-slate-800 dark:text-white font-heading uppercase tracking-wider flex items-center">
                     <User className="w-3.5 h-3.5 mr-1.5 text-purple-500" />
