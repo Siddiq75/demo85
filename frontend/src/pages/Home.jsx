@@ -332,7 +332,7 @@ export default function Home({ onNavigate }) {
       </div>
 
       {/* Realistic 3D floating buttons */}
-      <div className="absolute top-[38%] right-[22.5%] z-20 animate-floating pointer-events-auto" style={{ animationDelay: '1s' }}>
+      <div className="hidden lg:block absolute top-[38%] right-[22.5%] z-20 animate-floating pointer-events-auto" style={{ animationDelay: '1s' }}>
         <div className="floating-3d-button">
           <div className="button-hole-grid">
             <div className="button-hole"></div>
