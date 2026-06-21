@@ -240,17 +240,15 @@ export default function ChatsPage() {
       </div>
 
       {/* RIGHT PANEL: CHAT WINDOW */}
-      <div className="flex-grow flex h-full relative overflow-hidden bg-gradient-to-tr from-slate-50 via-purple-50/20 to-indigo-50/10 dark:from-slate-950/80 dark:via-purple-950/10 dark:to-indigo-950/5">
+      <div className="flex-grow flex h-full relative overflow-hidden bg-slate-50/30 dark:bg-slate-950/10">
         {selectedChat ? (
           <>
             <div className="flex-grow flex flex-col h-full min-w-0 relative z-10">
-              {/* Decorative wallpaper patterns & ambient glows */}
-              <div className="absolute inset-0 bg-stitch-grid pointer-events-none opacity-40 dark:opacity-20 -z-10"></div>
-              <div className="absolute -left-24 top-1/4 w-80 h-80 bg-purple-400/10 dark:bg-purple-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
-              <div className="absolute -right-24 bottom-1/4 w-80 h-80 bg-indigo-400/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+              {/* Decorative wallpaper patterns */}
+              <div className="absolute inset-0 bg-stitch-grid pointer-events-none opacity-40 dark:opacity-30 -z-10"></div>
               
               {/* Header */}
-              <div className="p-4 border-b border-slate-200/60 dark:border-white/5 flex items-center justify-between bg-white/70 dark:bg-slate-900/60 backdrop-blur-xl shadow-sm z-20">
+              <div className="p-4 border-b border-slate-200/80 dark:border-white/5 flex items-center justify-between bg-slate-100/90 dark:bg-slate-900/40 backdrop-blur-md shadow-sm">
                 <div className="flex items-center space-x-3 text-left">
                   <div 
                     className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-650 flex items-center justify-center font-bold text-xs shadow-md border border-purple-400/20"
@@ -260,11 +258,8 @@ export default function ChatsPage() {
                   </div>
                   <div>
                     <h4 className="text-sm font-black text-slate-800 dark:text-white font-heading leading-tight">{selectedChat.name}</h4>
-                    <span className="text-[10px] text-emerald-600 dark:text-emerald-400 font-extrabold flex items-center mt-0.5">
-                      <span className="relative flex h-2 w-2 mr-1.5">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-450 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500 shadow-[0_0_6px_#10b981]"></span>
-                      </span>
+                    <span className="text-[10px] text-emerald-600 dark:text-emerald-500 font-extrabold flex items-center mt-0.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-1.5 animate-pulse"></span>
                       {t('online') || 'Active Now'}
                     </span>
                   </div>
@@ -292,7 +287,7 @@ export default function ChatsPage() {
               </div>
 
               {/* Message Feed */}
-              <div ref={feedRef} className="flex-grow overflow-y-auto p-6 space-y-4 bg-transparent relative z-10">
+              <div ref={feedRef} className="flex-grow overflow-y-auto p-5 space-y-4 bg-slate-100/10 dark:bg-slate-950/25">
                 {messages.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-slate-450 dark:text-gray-550 space-y-2 select-none">
                     <MessageSquare className="w-8 h-8 text-slate-400 dark:text-slate-600" />
@@ -307,10 +302,10 @@ export default function ChatsPage() {
                         className={`flex ${isTailor ? 'justify-end' : 'justify-start'} animate-fade-in`}
                       >
                         <div 
-                          className={`max-w-[70%] min-w-[125px] px-4 py-3 rounded-2xl text-xs font-semibold text-left relative transition-all duration-305 shadow-md hover:scale-[1.01] hover:shadow-lg group ${
+                          className={`max-w-[70%] min-w-[125px] px-4 py-3 rounded-2xl text-xs font-semibold text-left relative transition-all duration-350 shadow-md group ${
                             isTailor 
                               ? 'rounded-tr-none chat-bubble-tailor hover:shadow-purple-500/30' 
-                              : 'rounded-tl-none chat-bubble-customer hover:shadow-slate-450/20'
+                              : 'rounded-tl-none chat-bubble-customer hover:shadow-slate-400/20'
                           }`}
                           style={isTailor ? { color: '#ffffff' } : {}}
                         >
@@ -328,7 +323,7 @@ export default function ChatsPage() {
                             <small className="font-semibold" style={isTailor ? { color: 'rgba(255, 255, 255, 0.7)' } : {}}>{formatTime(msg.timestamp)}</small>
                             {isTailor && (
                               msg.is_read 
-                                ? <CheckCheck className="w-3.5 h-3.5 text-emerald-450 animate-pulse" /> 
+                                ? <CheckCheck className="w-3.5 h-3.5 text-emerald-400 animate-pulse" /> 
                                 : <Check className="w-3.5 h-3.5" style={{ color: 'rgba(255, 255, 255, 0.7)' }} />
                             )}
                           </div>
@@ -339,27 +334,23 @@ export default function ChatsPage() {
                 )}
               </div>
 
-              {/* Input Footer - Premium Floating Capsule */}
-              <div className="p-4 bg-transparent border-t-0 z-20">
-                <form 
-                  onSubmit={handleSend} 
-                  className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-250/70 dark:border-white/10 rounded-[2rem] p-2 flex items-center space-x-2 shadow-xl shadow-purple-500/5 hover:border-purple-500/30 dark:hover:border-purple-500/30 focus-within:border-purple-500/50 focus-within:ring-4 focus-within:ring-purple-500/10 transition-all duration-300"
+
+              {/* Input Footer */}
+              <form onSubmit={handleSend} className="p-4 border-t border-slate-200/80 dark:border-white/5 bg-slate-55/70 dark:bg-slate-950/20 flex items-center space-x-3">
+                <input
+                  type="text"
+                  value={inputText}
+                  onChange={(e) => setInputText(e.target.value)}
+                  placeholder={t('typeMessage') || 'Type a message...'}
+                  className="flex-grow bg-slate-100/70 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 rounded-2xl px-4 py-3.5 text-xs text-slate-800 dark:text-white placeholder-slate-455 dark:placeholder-slate-550 focus:outline-none focus:border-purple-500/50 focus:bg-white dark:focus:bg-slate-950/20 transition-all shadow-inner"
+                />
+                <button
+                  type="submit"
+                  className="w-12 h-12 rounded-2xl bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-550 text-white flex items-center justify-center transition-all shadow-md shadow-purple-500/15 cursor-pointer active:scale-95 shrink-0"
                 >
-                  <input
-                    type="text"
-                    value={inputText}
-                    onChange={(e) => setInputText(e.target.value)}
-                    placeholder={t('typeMessage') || 'Type a message...'}
-                    className="flex-grow bg-transparent border-none rounded-2xl px-4 py-3 text-xs text-slate-800 dark:text-white placeholder-slate-450 dark:placeholder-slate-550 focus:outline-none focus:ring-0"
-                  />
-                  <button
-                    type="submit"
-                    className="w-11 h-11 rounded-full bg-gradient-to-r from-purple-650 to-indigo-650 hover:from-purple-550 hover:to-indigo-550 text-white flex items-center justify-center transition-all shadow-md shadow-purple-500/25 cursor-pointer active:scale-95 hover:scale-105 shrink-0"
-                  >
-                    <Send className="w-4 h-4" />
-                  </button>
-                </form>
-              </div>
+                  <Send className="w-4.5 h-4.5" />
+                </button>
+              </form>
             </div>
 
             {/* CRM & ORDER INSIGHTS SIDEBAR */}
