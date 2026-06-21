@@ -371,10 +371,10 @@ export default function Login({ initialMode = 'login', onNavigate }) {
         </div>
 
         {/* Redesigned Frosted Card container with softer borders and premium gradients */}
-        <div className="bg-white/80 backdrop-blur-xl p-8 sm:p-10 md:p-12 rounded-[2.75rem] border border-white/60 shadow-[0_30px_70px_rgba(124,58,237,0.08)] relative text-left hover:border-purple-500/20 transition-all duration-500 w-full max-w-xl z-10">
+        <div className="bg-white/80 backdrop-blur-xl p-6 sm:p-10 md:p-12 rounded-3xl sm:rounded-[2.75rem] border border-white/60 shadow-[0_30px_70px_rgba(124,58,237,0.08)] relative text-left hover:border-purple-500/20 transition-all duration-500 w-full max-w-xl z-10">
           
           <div className="mb-8 text-center sm:text-left">
-            <h3 className="text-slate-950 text-3xl sm:text-[2.25rem] font-black tracking-tight leading-tight">
+            <h3 className="text-slate-950 text-2xl sm:text-[2.25rem] font-black tracking-tight leading-tight">
               {mode === 'login' ? 'Tailor Login' : 
                mode === 'register' ? 'Tailor Registration' : 
                mode === 'forgot' ? 'Forgot Password' : 'Reset Password'}
@@ -420,7 +420,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     autoComplete="username"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-14 pr-4 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 sm:pl-14 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter your name"
                     required
                   />
@@ -442,7 +442,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     autoComplete="current-password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-14 pr-12 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 sm:pl-14 pr-12 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter your password"
                     required
                   />
@@ -468,7 +468,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-4 rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-base sm:text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
               >
                 <span>{loading ? t('loading') : t('loginBtn')}</span>
                 <ChevronRight className="w-5 h-5" />
@@ -495,7 +495,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     autoComplete="name"
                     value={name}
                     onChange={(e) => setName(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 pr-4 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-10 sm:pl-12 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter your full name"
                     required
                   />
@@ -517,7 +517,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     autoComplete="off"
                     value={shopName}
                     onChange={(e) => setShopName(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 pr-4 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-10 sm:pl-12 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter shop name"
                     required
                   />
@@ -539,7 +539,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     autoComplete="tel"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 pr-4 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-10 sm:pl-12 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter phone number"
                     required
                   />
@@ -561,7 +561,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     autoComplete="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 pr-4 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-10 sm:pl-12 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter email address"
                   />
                 </div>
@@ -582,7 +582,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     autoComplete="street-address"
                     value={address}
                     onChange={(e) => setAddress(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 pr-4 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-10 sm:pl-12 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter shop address"
                     required
                   />
@@ -600,7 +600,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                       autoComplete="new-password"
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
-                      className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-3 pr-10 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                      className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-3 pr-10 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                       placeholder="••••••"
                       required
                     />
@@ -624,7 +624,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                       autoComplete="new-password"
                       value={confirmPassword}
                       onChange={(e) => setConfirmPassword(e.target.value)}
-                      className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-3 pr-10 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                      className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-3 pr-10 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                       placeholder="••••••"
                       required
                     />
@@ -642,7 +642,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-4 rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-base sm:text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
               >
                 <span>{loading ? t('loading') : t('registerBtn')}</span>
                 <ChevronRight className="w-5 h-5" />
@@ -667,7 +667,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     name="phone"
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-14 pr-4 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 sm:pl-14 pr-4 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter registered phone number"
                     required
                   />
@@ -677,7 +677,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-4 rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-base sm:text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
               >
                 <span>{loading ? t('loading') : 'Send Reset Code'}</span>
                 <ChevronRight className="w-5 h-5" />
@@ -730,7 +730,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     name="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-14 pr-12 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 sm:pl-14 pr-12 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Enter new password"
                     required
                   />
@@ -758,7 +758,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
                     name="confirmPassword"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
-                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-14 pr-12 py-4 rounded-2xl text-lg outline-none placeholder:text-slate-400/80"
+                    className="w-full bg-slate-50/50 hover:bg-slate-50/80 border border-slate-200/80 focus:bg-white focus:border-purple-500 focus:ring-4 focus:ring-purple-500/10 focus:shadow-[0_0_20px_rgba(124,58,237,0.08)] text-slate-800 transition pl-12 sm:pl-14 pr-12 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl text-base sm:text-lg outline-none placeholder:text-slate-400/80"
                     placeholder="Confirm new password"
                     required
                   />
@@ -775,7 +775,7 @@ export default function Login({ initialMode = 'login', onNavigate }) {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-4 rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
+                className="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 py-3.5 sm:py-4 rounded-xl sm:rounded-2xl font-extrabold text-white flex items-center justify-center space-x-2.5 text-base sm:text-lg shadow-lg shadow-purple-600/20 hover:shadow-purple-600/35 hover:scale-[1.015] active:scale-[0.99] cursor-pointer transition duration-300"
               >
                 <span>{loading ? t('loading') : 'Reset Password'}</span>
                 <ChevronRight className="w-5 h-5" />
