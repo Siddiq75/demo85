@@ -704,9 +704,16 @@ export default function CustomerPortal() {
 
           {/* Chat modal/drawer popup */}
           {showChatModal && (
-            <div className="fixed inset-0 bg-slate-900/10 dark:bg-slate-950/20 backdrop-blur-[2px] z-50 overflow-hidden flex justify-end p-4 md:p-6 text-left animate-fade-in">
+            <div className="fixed inset-0 z-50 overflow-hidden text-left">
+              {/* Backdrop overlay */}
               <div 
-                className="w-full max-w-md bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 border border-slate-200/80 dark:border-white/10 rounded-3xl flex flex-col h-full overflow-hidden shadow-2xl relative text-left transition-all duration-300"
+                className="fixed inset-0 bg-slate-900/10 dark:bg-slate-950/25 backdrop-blur-[2px] transition-opacity duration-300 animate-fade-in"
+                onClick={() => setShowChatModal(false)}
+              ></div>
+              
+              {/* Responsive Chat Drawer Panel */}
+              <div 
+                className="fixed inset-y-0 right-0 z-50 w-full sm:w-[440px] max-w-full bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 border-l border-slate-200/80 dark:border-white/10 rounded-none sm:rounded-l-[2rem] flex flex-col h-full overflow-hidden shadow-2xl relative text-left animate-slide-in-right"
               >
                 {/* Decorative background design & ambient glows */}
                 <div className="absolute inset-0 bg-stitch-grid pointer-events-none opacity-30 dark:opacity-20 -z-10"></div>
