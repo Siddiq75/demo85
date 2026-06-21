@@ -707,29 +707,31 @@ export default function CustomerPortal() {
           {showChatModal && (
             <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 overflow-hidden flex justify-end p-4 md:p-6 text-left animate-fade-in">
               <div 
-                className="w-full max-w-md bg-gradient-to-b from-slate-900 to-slate-955 border border-white/10 rounded-3xl flex flex-col h-full overflow-hidden shadow-2xl relative text-left"
+                className="w-full max-w-md bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-955 border border-slate-200/80 dark:border-white/10 rounded-3xl flex flex-col h-full overflow-hidden shadow-2xl relative text-left transition-all duration-300"
               >
-                {/* Decorative background design */}
-                <div className="absolute inset-0 bg-stitch-grid pointer-events-none opacity-20 -z-10"></div>
+                {/* Decorative background design & ambient glows */}
+                <div className="absolute inset-0 bg-stitch-grid pointer-events-none opacity-30 dark:opacity-20 -z-10"></div>
+                <div className="absolute -left-20 top-1/4 w-64 h-64 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
+                <div className="absolute -right-20 bottom-1/4 w-64 h-64 bg-indigo-500/10 dark:bg-indigo-500/5 rounded-full blur-3xl pointer-events-none -z-10"></div>
                 
                 {/* Header */}
-                <div className="p-4 border-b border-white/5 flex items-center justify-between bg-slate-950/60 backdrop-blur-md">
+                <div className="p-4 border-b border-slate-200/60 dark:border-white/5 flex items-center justify-between bg-slate-50/90 dark:bg-slate-950/60 backdrop-blur-md shadow-sm z-20">
                   <div className="flex items-center space-x-3 text-left">
                     <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-650 text-white flex items-center justify-center font-bold text-sm shadow-md border border-white/5">
                       {selectedTailor.shop_name?.charAt(0).toUpperCase() || selectedTailor.name?.charAt(0).toUpperCase()}
                     </div>
                     <div>
-                      <h4 className="text-sm font-black text-white font-heading leading-tight">
+                      <h4 className="text-sm font-black text-slate-800 dark:text-white font-heading leading-tight">
                         {selectedTailor.shop_name || selectedTailor.name}
                       </h4>
-                      <span className="text-[10px] text-purple-400 font-extrabold block mt-0.5 uppercase tracking-wider">
+                      <span className="text-[10px] text-purple-650 dark:text-purple-400 font-extrabold block mt-0.5 uppercase tracking-wider">
                         Tailor Shop Chat
                       </span>
                     </div>
                   </div>
                   <button 
                     onClick={() => setShowChatModal(false)}
-                    className="text-gray-400 hover:text-white font-bold p-1.5 bg-white/5 hover:bg-white/10 rounded-xl border border-white/5 transition duration-300 cursor-pointer"
+                    className="text-slate-550 dark:text-gray-400 hover:text-slate-800 dark:hover:text-white font-bold p-1.5 bg-slate-200/50 dark:bg-white/5 hover:bg-slate-200/80 dark:hover:bg-white/10 rounded-xl border border-slate-200/30 dark:border-white/5 transition duration-300 cursor-pointer"
                   >
                     ✕
                   </button>
@@ -738,8 +740,8 @@ export default function CustomerPortal() {
                 {/* Message Feed */}
                 <div ref={chatFeedRef} className="flex-grow overflow-y-auto p-4 space-y-3 bg-transparent relative z-10">
                   {chatMessages.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center h-full text-slate-500 space-y-2 select-none">
-                      <MessageSquare className="w-8 h-8 text-slate-700 animate-pulse" />
+                    <div className="flex flex-col items-center justify-center h-full text-slate-450 dark:text-gray-550 space-y-2 select-none">
+                      <MessageSquare className="w-8 h-8 text-slate-400 dark:text-slate-650 animate-pulse" />
                       <p className="text-xs">{t('noMessagesYet')}</p>
                     </div>
                   ) : (
@@ -751,10 +753,10 @@ export default function CustomerPortal() {
                           className={`flex ${isCustomer ? 'justify-end' : 'justify-start'} animate-fade-in`}
                         >
                           <div 
-                            className={`max-w-[75%] min-w-[125px] px-4 py-3 rounded-2xl text-xs font-semibold text-left relative transition-all duration-350 shadow-md group ${
+                            className={`max-w-[75%] min-w-[125px] px-4 py-3 rounded-2xl text-xs font-semibold text-left relative transition-all duration-300 shadow-md hover:scale-[1.01] hover:shadow-lg group ${
                               isCustomer 
                                 ? 'rounded-tr-none chat-bubble-tailor hover:shadow-purple-500/30' 
-                                : 'rounded-tl-none chat-bubble-customer hover:shadow-slate-400/20'
+                                : 'rounded-tl-none chat-bubble-customer hover:shadow-slate-450/20'
                             }`}
                             style={isCustomer ? { color: '#ffffff' } : {}}
                           >
@@ -772,7 +774,7 @@ export default function CustomerPortal() {
                               <small className="font-semibold" style={isCustomer ? { color: 'rgba(255, 255, 255, 0.7)' } : {}}>{formatChatTime(msg.timestamp)}</small>
                               {isCustomer && (
                                 msg.is_read 
-                                  ? <CheckCheck className="w-3.5 h-3.5 text-emerald-400" /> 
+                                  ? <CheckCheck className="w-3.5 h-3.5 text-emerald-455" /> 
                                   : <Check className="w-3.5 h-3.5" style={{ color: 'rgba(255, 255, 255, 0.7)' }} />
                               )}
                             </div>
@@ -783,22 +785,27 @@ export default function CustomerPortal() {
                   )}
                 </div>
 
-                {/* Input Footer */}
-                <form onSubmit={handleSendChatMessage} className="p-4 border-t border-white/5 bg-slate-950/60 backdrop-blur-md flex items-center space-x-3">
-                  <input
-                    type="text"
-                    value={chatInputText}
-                    onChange={(e) => setChatInputText(e.target.value)}
-                    placeholder={t('typeMessage') || 'Type a message...'}
-                    className="flex-grow bg-white/5 border border-white/5 rounded-2xl px-4 py-3 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-purple-500/50 focus:bg-slate-900/40 transition"
-                  />
-                  <button
-                    type="submit"
-                    className="w-10 h-10 rounded-xl bg-purple-600 hover:bg-purple-500 text-white flex items-center justify-center transition-all shadow-md shadow-purple-600/10 cursor-pointer active:scale-95 shrink-0"
+                {/* Input Footer - Premium Floating Capsule */}
+                <div className="p-4 bg-transparent border-t-0 z-20">
+                  <form 
+                    onSubmit={handleSendChatMessage} 
+                    className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-250/70 dark:border-white/10 rounded-[2rem] p-1.5 flex items-center space-x-2 shadow-xl shadow-purple-500/5 hover:border-purple-500/30 dark:hover:border-purple-500/30 focus-within:border-purple-500/50 focus-within:ring-4 focus-within:ring-purple-500/10 transition-all duration-300"
                   >
-                    <Send className="w-4 h-4" />
-                  </button>
-                </form>
+                    <input
+                      type="text"
+                      value={chatInputText}
+                      onChange={(e) => setInputText(e.target.value)}
+                      placeholder={t('typeMessage') || 'Type a message...'}
+                      className="flex-grow bg-transparent border-none rounded-2xl px-4 py-2.5 text-xs text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-550 focus:outline-none focus:ring-0"
+                    />
+                    <button
+                      type="submit"
+                      className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-650 to-indigo-650 hover:from-purple-550 hover:to-indigo-550 text-white flex items-center justify-center transition-all shadow-md shadow-purple-500/25 cursor-pointer active:scale-95 hover:scale-105 shrink-0"
+                    >
+                      <Send className="w-3.5 h-3.5" />
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
           )}
