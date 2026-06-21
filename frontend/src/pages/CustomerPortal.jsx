@@ -467,7 +467,7 @@ export default function CustomerPortal() {
 
                       {/* Horizontal Progress tracker */}
                       <div className="space-y-4 py-2">
-                        <div className="relative flex justify-between">
+                        <div className="relative flex justify-between items-start">
                           {/* Tracking background line */}
                           <div className="absolute top-3.5 left-0 right-0 h-1 bg-purple-600/5 dark:bg-white/5 -z-10 rounded-full"></div>
                           <div 
