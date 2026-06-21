@@ -521,48 +521,13 @@ export default function ChatsPage() {
                 </div>
               </div>
 
-              <div className="space-y-3 max-w-lg mb-8 relative z-10">
+              <div className="space-y-3 max-w-lg relative z-10">
                 <h4 className="text-xl md:text-2xl font-black font-heading tracking-tight bg-gradient-to-r from-purple-650 via-indigo-650 to-pink-600 dark:from-purple-400 dark:via-indigo-300 dark:to-pink-400 bg-clip-text text-transparent leading-tight">
                   {t('selectChatTitle')}
                 </h4>
                 <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-semibold max-w-md mx-auto">
                   {t('selectChatDesc')}
                 </p>
-              </div>
-
-              {/* CRM Feature cards grid inside the empty state */}
-              <div className="grid grid-cols-3 gap-3 w-full mb-8 relative z-10">
-                <div className="bg-white/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 p-3.5 rounded-2xl flex flex-col items-center text-center hover:scale-102 hover:border-purple-500/20 dark:hover:border-purple-500/25 transition-all duration-300 shadow-sm">
-                  <div className="w-8 h-8 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center mb-2">
-                    <Ruler className="w-4 h-4 text-purple-600 dark:text-purple-400" />
-                  </div>
-                  <span className="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-wider block mb-1">Measurements</span>
-                  <span className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold leading-snug">Quick-view sleeve, neck, & custom fabric fittings</span>
-                </div>
-                
-                <div className="bg-white/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 p-3.5 rounded-2xl flex flex-col items-center text-center hover:scale-102 hover:border-purple-500/20 dark:hover:border-purple-500/25 transition-all duration-300 shadow-sm">
-                  <div className="w-8 h-8 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center mb-2">
-                    <ShoppingBag className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-                  </div>
-                  <span className="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-wider block mb-1">Stitch Logs</span>
-                  <span className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold leading-snug">Monitor order progress, delivery dates, & balance dues</span>
-                </div>
-
-                <div className="bg-white/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 p-3.5 rounded-2xl flex flex-col items-center text-center hover:scale-102 hover:border-purple-500/20 dark:hover:border-purple-500/25 transition-all duration-300 shadow-sm">
-                  <div className="w-8 h-8 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 flex items-center justify-center mb-2">
-                    <MessageSquare className="w-4 h-4 text-pink-600 dark:text-pink-400" />
-                  </div>
-                  <span className="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-wider block mb-1">Direct Chat</span>
-                  <span className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold leading-snug">Send manual alerts or updates in real time</span>
-                </div>
-              </div>
-              
-              <div className="flex items-center space-x-2 bg-emerald-500/5 dark:bg-emerald-500/5 border border-emerald-500/15 dark:border-emerald-500/10 px-4 py-2.5 rounded-2xl text-[11px] text-emerald-700 dark:text-emerald-400 font-black relative overflow-hidden group">
-                <span className="relative flex h-2 w-2 mr-0.5">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                </span>
-                <span>CRM METRICS AND BILLING BALANCES SYNCED IN REAL-TIME</span>
               </div>
             </div>
           </div>
