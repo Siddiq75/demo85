@@ -454,7 +454,7 @@ export default function Home({ onNavigate }) {
 
       {/* Mobile Drawer Overlay */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 z-[120] bg-white/98 backdrop-blur-xl flex flex-col p-6 overflow-y-auto animate-fade-in md:hidden">
+        <div className="fixed inset-0 z-[120] bg-white/98 backdrop-blur-xl flex flex-col p-6 pb-12 overflow-y-auto animate-fade-in md:hidden">
           {/* Top Bar inside Overlay */}
           <div className="flex justify-between items-center mb-10">
             {/* Brand Logo in Drawer */}
@@ -530,7 +530,7 @@ export default function Home({ onNavigate }) {
           </div>
 
           {/* Portals */}
-          <div className="flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-auto">
+          <div className="flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-6">
             <span className="text-xs font-black tracking-widest text-slate-400 uppercase text-left">
               {language === 'en' ? 'PORTALS' : language === 'hi' ? 'पोर्टल' : 'పోర్టల్స్'}
             </span>
