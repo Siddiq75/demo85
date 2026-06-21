@@ -79,17 +79,6 @@ export default function Home({ onNavigate }) {
     }
   }, [showPushBanner]);
 
-  // Word Carousel State and Timer for Hero section
-  const [wordIndex, setWordIndex] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % 3);
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const heroWords = [t('heroWord1'), t('heroWord2'), t('heroWord3')];
-
   // Premium color-coded theme mapping for each feature card
   const themeMap = {
     purple: {
@@ -584,20 +573,12 @@ export default function Home({ onNavigate }) {
                 <span>TAILORING REIMAGINED</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.03] select-none flex flex-col items-start w-full">
-                <div className="w-full">
-                  <span className="text-slate-900 dark:text-white">{t('appName')} </span>
-                  <span className="bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-                    {t('heroTitle')}
-                  </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.03] select-none flex flex-col items-start">
+                <div className="animate-slide-line1 text-slate-800 dark:text-white">
+                  {t('heroTitle')}
                 </div>
-                <div className="h-[1.25em] relative overflow-hidden w-full mt-1">
-                  <span
-                    key={wordIndex}
-                    className="absolute left-0 bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(124,58,237,0.05)] animate-word-change"
-                  >
-                    {heroWords[wordIndex]}
-                  </span>
+                <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(124,58,237,0.05)] animate-slide-line2 mt-1">
+                  {t('heroTitleAccent')}
                 </div>
               </h1>
               
