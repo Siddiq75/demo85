@@ -573,9 +573,11 @@ export default function Home({ onNavigate }) {
                 <span>TAILORING REIMAGINED</span>
               </div>
 
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-955 leading-[1.03] select-none">
-                {t('heroTitle')}<br />
-                <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(124,58,237,0.05)]">
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-955 leading-[1.03] select-none flex flex-col items-start">
+                <span className="animate-slide-line1">
+                  {t('heroTitle')}
+                </span>
+                <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(124,58,237,0.05)] animate-slide-line2 mt-1">
                   {t('heroTitleAccent')}
                 </span>
               </h1>
