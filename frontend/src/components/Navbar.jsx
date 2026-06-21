@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
-import { User, Languages, Sun, Moon, Bell, Search, Menu } from 'lucide-react';
+import { User, Languages, Sun, Moon, Bell, Search, Menu, LogOut } from 'lucide-react';
 
-export default function Navbar({ toggleSidebar }) {
-  const { user } = useAuth();
+export default function Navbar({ toggleSidebar, onNavigate }) {
+  const { user, logout } = useAuth();
   const { t, language, changeLanguage } = useLanguage();
   const { theme, toggleTheme } = useTheme();
+  const [profileDropdownOpen, setProfileDropdownOpen] = useState(false);
+
+  const handleLogout = () => {
+    logout();
+    setProfileDropdownOpen(false);
+    if (onNavigate) {
+      onNavigate('home');
+    }
+  };
 
   // Dynamic user initials
   const nameParts = (user?.name || '').trim().split(/\s+/);
@@ -53,16 +62,63 @@ export default function Navbar({ toggleSidebar }) {
 
 
         {/* Profile */}
-        <div className="flex items-center space-x-3 border-l border-white/10 pl-4">
-          <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-purple-600/10">
-            {initials}
-          </div>
-          <div className="hidden sm:block text-left">
-            <div className="text-sm font-bold text-gray-800 dark:text-white leading-tight">{user?.name || 'Tailor'}</div>
-            <div className="text-xs text-purple-600 dark:text-purple-400 font-semibold capitalize leading-none mt-0.5">
-              {user?.shop_name || user?.role || 'VastraSilai Tailor'}
+        <div className="relative">
+          <button
+            onClick={() => setProfileDropdownOpen(!profileDropdownOpen)}
+            className="flex items-center space-x-3 border-l border-white/10 pl-4 cursor-pointer focus:outline-none group text-left"
+            aria-expanded={profileDropdownOpen}
+            aria-haspopup="true"
+          >
+            <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-purple-600/10 group-hover:scale-105 transition-transform duration-200 flex-shrink-0">
+              {initials}
             </div>
-          </div>
+            <div className="hidden sm:block text-left">
+              <div className="text-sm font-bold text-gray-800 dark:text-white leading-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+                {user?.name || 'Tailor'}
+              </div>
+              <div className="text-xs text-purple-600 dark:text-purple-400 font-semibold capitalize leading-none mt-0.5">
+                {user?.shop_name || user?.role || 'VastraSilai Tailor'}
+              </div>
+            </div>
+          </button>
+
+          {profileDropdownOpen && (
+            <>
+              {/* Backdrop to close dropdown on click outside */}
+              <div
+                className="fixed inset-0 z-30 cursor-default"
+                onClick={() => setProfileDropdownOpen(false)}
+              />
+              {/* Dropdown Menu */}
+              <div className="absolute right-0 mt-2 w-52 bg-white dark:bg-gray-900 border border-gray-150 dark:border-white/10 rounded-xl shadow-xl py-3 z-40 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-150">
+                {/* Profile Card Header Inside Dropdown */}
+                <div className="flex items-center space-x-3 px-4 pb-3 border-b border-gray-100 dark:border-white/5">
+                  <div className="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold text-sm shadow-md shadow-purple-600/10 flex-shrink-0">
+                    {initials}
+                  </div>
+                  <div className="text-left min-w-0">
+                    <div className="text-sm font-bold text-gray-800 dark:text-white leading-tight truncate">
+                      {user?.name || 'Tailor'}
+                    </div>
+                    <div className="text-xs text-purple-600 dark:text-purple-400 font-semibold capitalize leading-none mt-0.5 truncate">
+                      {user?.role || 'Tailor'}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Actions */}
+                <div className="pt-2 px-2">
+                  <button
+                    onClick={handleLogout}
+                    className="w-full flex items-center space-x-2.5 px-3 py-2 rounded-lg text-sm font-semibold text-red-500 hover:bg-red-500/10 dark:hover:bg-red-500/15 transition cursor-pointer text-left"
+                  >
+                    <LogOut className="w-4 h-4" />
+                    <span>{t('logout')}</span>
+                  </button>
+                </div>
+              </div>
+            </>
+          )}
         </div>
 
       </div>

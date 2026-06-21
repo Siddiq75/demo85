@@ -48,7 +48,7 @@ export default function Layout({ children, activePage, onNavigate }) {
       {/* Content wrapper */}
       <div className="flex-grow flex flex-col pl-0 lg:pl-64 min-h-screen relative z-10 w-full min-w-0">
         {/* Navbar */}
-        <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} />
+        <Navbar toggleSidebar={() => setSidebarOpen(!sidebarOpen)} onNavigate={onNavigate} />
         
         {/* Main page viewport */}
         <main className="flex-grow p-8 overflow-y-auto max-w-[1600px] w-full mx-auto">
