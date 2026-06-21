@@ -1493,5 +1493,151 @@ html.light .chart-tooltip-text {
   margin-bottom: 4px !important;
 }
 
+/* ==========================================================================
+   DESKTOP COMPACT SCALING FOR WORKSPACE PAGES
+   ========================================================================== */
+@media (min-width: 1024px) {
+  /* Scale down the main viewport padding */
+  main.flex-grow.p-8,
+  .flex-grow.p-8 {
+    padding: 1.5rem !important; /* from p-8 (32px) to p-6 (24px) */
+  }
+
+  /* Scale down dashboard stats grid */
+  .dashboard-stats-grid {
+    gap: 0.875rem !important; /* from gap-6 (24px) to 14px */
+  }
+
+  .dashboard-stats-grid .glass-card {
+    padding: 1rem !important; /* from p-6 to p-4 */
+    min-height: 110px !important; /* from min-h-[140px] to 110px */
+    border-radius: 14px !important;
+  }
+
+  .dashboard-stats-grid .glass-card h3 {
+    font-size: 1.375rem !important; /* from text-3xl to ~22px */
+    margin-top: 0.25rem !important;
+  }
+
+  .dashboard-stats-grid .glass-card span {
+    font-size: 0.75rem !important; /* from text-sm to text-xs */
+  }
+
+  /* Scale down general dashboard panels & cards padding */
+  .glass-panel {
+    padding: 1.25rem !important; /* from p-6 to p-5 */
+  }
+
+  /* Border radius adjustments */
+  .glass-panel.rounded-3xl {
+    border-radius: 16px !important; /* from rounded-3xl to rounded-2xl */
+  }
+
+  /* Scale down headings & titles */
+  h2.font-heading.text-3xl {
+    font-size: 1.5rem !important; /* from text-3xl to text-2xl */
+  }
+
+  /* Taglines */
+  h2.font-heading.text-3xl + p.text-sm,
+  h2.font-heading.text-3xl + p.text-gray-400 {
+    font-size: 0.75rem !important; /* from text-sm to text-xs */
+    margin-top: 0.125rem !important;
+  }
+
+  /* Subheadings inside panels */
+  .glass-panel h3.text-lg {
+    font-size: 0.9375rem !important; /* from text-lg to base */
+  }
+
+  /* Table head padding and styling */
+  table th {
+    padding-bottom: 0.375rem !important;
+  }
+
+  /* Table cells padding and text size */
+  table td {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: 0.8125rem !important; /* ~13px */
+  }
+
+  table tr.premium-table-row td {
+    padding-top: 0.625rem !important;
+    padding-bottom: 0.625rem !important;
+  }
+
+  table tr.premium-table-row td div.text-base {
+    font-size: 0.875rem !important; /* ~14px */
+  }
+
+  /* Customer Registry Cards list */
+  .customer-card.p-8 {
+    padding: 1rem !important; /* from p-8 to p-4 */
+    border-radius: 16px !important; /* from rounded-3xl to rounded-2xl */
+    min-height: 110px !important; /* from min-h-[140px] to 110px */
+  }
+
+  .customer-card.p-8 .w-14.h-14 {
+    width: 2.5rem !important; /* from w-14 (56px) to w-10 (40px) */
+    height: 2.5rem !important;
+    font-size: 0.8125rem !important;
+  }
+
+  .customer-card.p-8 h4.text-lg {
+    font-size: 0.875rem !important; /* ~14px */
+  }
+
+  /* Select and Input panel fields */
+  input.glass-panel,
+  select.glass-panel,
+  .glass-input {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    font-size: 0.8125rem !important;
+    border-radius: 10px !important;
+  }
+
+  /* Buttons */
+  button.neon-btn,
+  button.bg-purple-600 {
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+    font-size: 0.8125rem !important; /* ~13px */
+    border-radius: 10px !important;
+  }
+
+  /* Details Measurements Form */
+  .measurement-card.p-4 {
+    padding: 0.75rem !important;
+    border-radius: 12px !important;
+  }
+
+  .measurement-card .text-xl {
+    font-size: 1.125rem !important; /* ~18px */
+  }
+
+  .measurement-input {
+    padding: 0.375rem !important;
+    font-size: 0.875rem !important;
+    border-radius: 8px !important;
+  }
+
+  .measurement-textarea {
+    padding: 0.5rem 0.75rem !important;
+    font-size: 0.8125rem !important;
+    border-radius: 12px !important;
+  }
+
+  /* Dialog modal panel styling */
+  div.fixed.inset-0 .glass-panel {
+    padding: 1.25rem !important;
+    border-radius: 16px !important;
+  }
+}
+
+
 
 
