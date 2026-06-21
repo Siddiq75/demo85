@@ -705,7 +705,7 @@ export default function CustomerPortal() {
 
           {/* Chat modal/drawer popup */}
           {showChatModal && (
-            <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 overflow-hidden flex justify-end p-4 md:p-6 text-left animate-fade-in">
+            <div className="fixed inset-0 bg-slate-900/10 dark:bg-slate-950/20 backdrop-blur-[2px] z-50 overflow-hidden flex justify-end p-4 md:p-6 text-left animate-fade-in">
               <div 
                 className="w-full max-w-md bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 border border-slate-200/80 dark:border-white/10 rounded-3xl flex flex-col h-full overflow-hidden shadow-2xl relative text-left transition-all duration-300"
               >
