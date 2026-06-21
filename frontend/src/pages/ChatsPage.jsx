@@ -473,58 +473,97 @@ export default function ChatsPage() {
             )}
           </>
         ) : (
-          <div className="flex flex-col items-center justify-center h-full text-slate-500 space-y-6 select-none p-8 text-center animate-fade-in">
-            {/* Animated Sewing SVG composition */}
-            <div className="relative w-48 h-48 flex items-center justify-center">
-              <div className="absolute inset-0 rounded-full border border-dashed border-purple-500/20 animate-[spin_60s_linear_infinite]"></div>
-              <div className="absolute inset-4 rounded-full border border-dashed border-pink-500/15 animate-[spin_40s_linear_infinite_reverse]"></div>
+          <div className="flex flex-col items-center justify-center h-full select-none p-8 text-center animate-fade-in w-full max-w-4xl mx-auto">
+            <div className="bg-white/40 dark:bg-slate-900/30 backdrop-blur-xl border border-slate-200/50 dark:border-white/5 rounded-[2.5rem] p-10 max-w-2xl shadow-2xl flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 hover:shadow-purple-500/5">
+              {/* Glow background effects */}
+              <div className="absolute -right-20 -top-20 w-60 h-60 bg-purple-500/10 dark:bg-purple-500/5 rounded-full blur-3xl pointer-events-none"></div>
+              <div className="absolute -left-20 -bottom-20 w-60 h-60 bg-pink-500/10 dark:bg-pink-500/5 rounded-full blur-3xl pointer-events-none"></div>
               
-              <svg className="w-32 h-32 text-purple-550/40 dark:text-purple-400/20" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path 
-                  d="M 15 50 C 30 20, 70 80, 85 50" 
-                  stroke="currentColor" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round"
-                  strokeDasharray="5 5" 
-                  className="animate-slow-dash text-purple-500/60 dark:text-purple-400/30"
-                />
-                <path 
-                  d="M 82 25 L 68 39 M 68 39 L 15 85 L 12 88 L 15 85 L 25 82 Z" 
-                  stroke="url(#needleGrad)" 
-                  strokeWidth="2.5" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
-                />
-                <circle cx="80" cy="27" r="1.5" fill="currentColor" />
-                <path 
-                  d="M 80 27 C 88 18, 92 35, 84 38 C 76 41, 62 30, 68 39" 
-                  stroke="#a855f7" 
-                  strokeWidth="1.5" 
-                  fill="none" 
-                />
-                <defs>
-                  <linearGradient id="needleGrad" x1="0" y1="1" x2="1" y2="0">
-                    <stop offset="0%" stopColor="#ec4899" />
-                    <stop offset="100%" stopColor="#8b5cf6" />
-                  </linearGradient>
-                </defs>
-              </svg>
-              
-              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-4 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-white/10 rounded-2xl shadow-xl shadow-purple-500/5">
-                <MessageSquare className="w-8 h-8 text-purple-650 dark:text-purple-400 animate-bounce" strokeWidth={2.2} />
+              {/* Animated Sewing SVG composition */}
+              <div className="relative w-40 h-40 flex items-center justify-center mb-6">
+                <div className="absolute inset-0 rounded-full border border-dashed border-purple-500/20 dark:border-purple-500/10 animate-[spin_60s_linear_infinite]"></div>
+                <div className="absolute inset-4 rounded-full border border-dashed border-pink-500/15 dark:border-pink-500/5 animate-[spin_40s_linear_infinite_reverse]"></div>
+                <div className="absolute inset-8 bg-gradient-to-tr from-purple-500/5 to-indigo-500/5 rounded-full blur-xl animate-pulse"></div>
+                
+                <svg className="w-24 h-24 text-purple-550/40 dark:text-purple-400/20 z-10" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path 
+                    d="M 15 50 C 30 20, 70 80, 85 50" 
+                    stroke="currentColor" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round"
+                    strokeDasharray="5 5" 
+                    className="animate-slow-dash text-purple-500/60 dark:text-purple-400/30"
+                  />
+                  <path 
+                    d="M 82 25 L 68 39 M 68 39 L 15 85 L 12 88 L 15 85 L 25 82 Z" 
+                    stroke="url(#needleGrad)" 
+                    strokeWidth="2.5" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round"
+                  />
+                  <circle cx="80" cy="27" r="1.5" fill="currentColor" />
+                  <path 
+                    d="M 80 27 C 88 18, 92 35, 84 38 C 76 41, 62 30, 68 39" 
+                    stroke="#a855f7" 
+                    strokeWidth="1.5" 
+                    fill="none" 
+                  />
+                  <defs>
+                    <linearGradient id="needleGrad" x1="0" y1="1" x2="1" y2="0">
+                      <stop offset="0%" stopColor="#ec4899" />
+                      <stop offset="100%" stopColor="#8b5cf6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+                
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3.5 bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-white/10 rounded-2xl shadow-xl shadow-purple-500/10 z-20 hover:scale-110 transition-transform duration-300">
+                  <MessageSquare className="w-7 h-7 text-purple-600 dark:text-purple-400 animate-bounce" strokeWidth={2} />
+                </div>
               </div>
-            </div>
 
-            <div className="space-y-2 max-w-sm">
-              <h4 className="text-lg font-black text-slate-800 dark:text-white font-heading tracking-tight">{t('selectChatTitle') || 'Select a customer chat'}</h4>
-              <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-semibold">
-                {t('selectChatDesc') || 'Choose a customer conversation from the list on the left to review measurement history, active order logs, and exchange instant messages.'}
-              </p>
-            </div>
-            
-            <div className="flex items-center space-x-2 bg-purple-500/5 dark:bg-white/5 border border-purple-500/10 dark:border-white/5 px-4 py-2 rounded-2xl max-w-xs text-[11px] text-slate-650 dark:text-slate-400 font-bold leading-normal">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse flex-shrink-0"></span>
-              <span>CRM metrics and billing balances update in real-time.</span>
+              <div className="space-y-3 max-w-lg mb-8 relative z-10">
+                <h4 className="text-xl md:text-2xl font-black font-heading tracking-tight bg-gradient-to-r from-purple-650 via-indigo-650 to-pink-600 dark:from-purple-400 dark:via-indigo-300 dark:to-pink-400 bg-clip-text text-transparent leading-tight">
+                  {t('selectChatTitle')}
+                </h4>
+                <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed font-semibold max-w-md mx-auto">
+                  {t('selectChatDesc')}
+                </p>
+              </div>
+
+              {/* CRM Feature cards grid inside the empty state */}
+              <div className="grid grid-cols-3 gap-3 w-full mb-8 relative z-10">
+                <div className="bg-white/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 p-3.5 rounded-2xl flex flex-col items-center text-center hover:scale-102 hover:border-purple-500/20 dark:hover:border-purple-500/25 transition-all duration-300 shadow-sm">
+                  <div className="w-8 h-8 rounded-xl bg-purple-500/10 dark:bg-purple-500/20 flex items-center justify-center mb-2">
+                    <Ruler className="w-4 h-4 text-purple-600 dark:text-purple-400" />
+                  </div>
+                  <span className="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-wider block mb-1">Measurements</span>
+                  <span className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold leading-snug">Quick-view sleeve, neck, & custom fabric fittings</span>
+                </div>
+                
+                <div className="bg-white/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 p-3.5 rounded-2xl flex flex-col items-center text-center hover:scale-102 hover:border-purple-500/20 dark:hover:border-purple-500/25 transition-all duration-300 shadow-sm">
+                  <div className="w-8 h-8 rounded-xl bg-indigo-500/10 dark:bg-indigo-500/20 flex items-center justify-center mb-2">
+                    <ShoppingBag className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  </div>
+                  <span className="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-wider block mb-1">Stitch Logs</span>
+                  <span className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold leading-snug">Monitor order progress, delivery dates, & balance dues</span>
+                </div>
+
+                <div className="bg-white/60 dark:bg-white/5 border border-slate-200/50 dark:border-white/5 p-3.5 rounded-2xl flex flex-col items-center text-center hover:scale-102 hover:border-purple-500/20 dark:hover:border-purple-500/25 transition-all duration-300 shadow-sm">
+                  <div className="w-8 h-8 rounded-xl bg-pink-500/10 dark:bg-pink-500/20 flex items-center justify-center mb-2">
+                    <MessageSquare className="w-4 h-4 text-pink-600 dark:text-pink-400" />
+                  </div>
+                  <span className="text-[10px] font-black text-slate-800 dark:text-white uppercase tracking-wider block mb-1">Direct Chat</span>
+                  <span className="text-[9px] text-slate-500 dark:text-slate-400 font-semibold leading-snug">Send manual alerts or updates in real time</span>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-2 bg-emerald-500/5 dark:bg-emerald-500/5 border border-emerald-500/15 dark:border-emerald-500/10 px-4 py-2.5 rounded-2xl text-[11px] text-emerald-700 dark:text-emerald-400 font-black relative overflow-hidden group">
+                <span className="relative flex h-2 w-2 mr-0.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                </span>
+                <span>CRM METRICS AND BILLING BALANCES SYNCED IN REAL-TIME</span>
+              </div>
             </div>
           </div>
         )}

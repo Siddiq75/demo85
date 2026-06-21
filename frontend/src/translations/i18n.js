@@ -226,7 +226,9 @@ export const translations = {
     chats: "Chats",
     typeMessage: "Type a message...",
     noMessagesYet: "No messages yet. Start a conversation!",
-    chatSearchPlaceholder: "Search customers..."
+    chatSearchPlaceholder: "Search customers...",
+    selectChatTitle: "Select a customer chat",
+    selectChatDesc: "Choose a customer conversation from the list on the left to review measurement history, active order logs, and exchange instant messages."
   },
   hi: {
     // Common
@@ -455,7 +457,9 @@ export const translations = {
     chats: "चैट",
     typeMessage: "संदेश लिखें...",
     noMessagesYet: "कोई संदेश नहीं। बातचीत शुरू करें!",
-    chatSearchPlaceholder: "ग्राहकों को खोजें..."
+    chatSearchPlaceholder: "ग्राहकों को खोजें...",
+    selectChatTitle: "ग्राहक चैट का चयन करें",
+    selectChatDesc: "माप इतिहास, सक्रिय ऑर्डर लॉग की समीक्षा करने और त्वरित संदेशों का आदान-प्रदान करने के लिए बाईं ओर की सूची से ग्राहक बातचीत चुनें।"
   },
   te: {
     // Common
@@ -684,6 +688,8 @@ export const translations = {
     chats: "చాట్లు",
     typeMessage: "సందేశాన్ని టైప్ చేయండి...",
     noMessagesYet: "ఇంకా సందేశాలు లేవు. సంభాషణను ప్రారంభించండి!",
-    chatSearchPlaceholder: "కస్టమర్లను శోధించండి..."
+    chatSearchPlaceholder: "కస్టమర్లను శోధించండి...",
+    selectChatTitle: "కస్టమర్ చాట్‌ను ఎంచుకోండి",
+    selectChatDesc: "కొలతల చరిత్ర, యాక్టివ్ ఆర్డర్ లాగ్‌లను సమీక్షించడానికి మరియు తక్షణ సందేశాలను మార్పిడి చేయడానికి ఎడమ వైపున ఉన్న జాబితా నుండి కస్టమర్ సంభాషణను ఎంచుకోండి."
   }
 };
