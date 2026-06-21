@@ -573,41 +573,12 @@ export default function Home({ onNavigate }) {
                 <span>TAILORING REIMAGINED</span>
               </div>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.1] select-none flex flex-col items-start font-heading">
-                <div className="text-slate-805 dark:text-white flex flex-wrap items-center">
-                  <span className="inline-block mr-3">
-                    {"VastraSilai".split("").map((char, index) => (
-                      <span 
-                        key={index} 
-                        className="inline-block animate-letter-reveal opacity-0"
-                        style={{ 
-                          animationDelay: `${index * 0.05}s`,
-                          animationFillMode: 'forwards'
-                        }}
-                      >
-                        {char}
-                      </span>
-                    ))}
-                  </span>
-                  <span 
-                    className="inline-block animate-phrase-reveal opacity-0 text-purple-605 dark:text-purple-400"
-                    style={{ 
-                      animationDelay: '0.7s',
-                      animationFillMode: 'forwards'
-                    }}
-                  >
-                    {t('heroTitle')}
-                  </span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 leading-[1.03] select-none flex flex-col items-start">
+                <div className="animate-slide-line1 text-slate-800 dark:text-white">
+                  {t('heroTitle')}
                 </div>
-                <div 
-                  className="animate-intelligent-reveal mt-1.5 opacity-0"
-                  style={{ 
-                    animationFillMode: 'forwards'
-                  }}
-                >
-                  <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent animate-intelligent-glow inline-block">
-                    {t('heroTitleAccent')}
-                  </span>
+                <div className="bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(124,58,237,0.05)] animate-slide-line2 mt-1">
+                  {t('heroTitleAccent')}
                 </div>
               </h1>
               
