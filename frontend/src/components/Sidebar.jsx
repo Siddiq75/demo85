@@ -1,11 +1,9 @@
 import React from 'react';
-import { useAuth } from '../context/AuthContext';
 import { useLanguage } from '../context/LanguageContext';
 import { useTheme } from '../context/ThemeContext';
-import { Scissors, Users, FileText, IndianRupee, Calendar, BarChart3, Settings, LogOut, MessageSquare } from 'lucide-react';
+import { Scissors, Users, FileText, IndianRupee, Calendar, BarChart3, Settings, MessageSquare } from 'lucide-react';
 
 export default function Sidebar({ activePage, onNavigate, isOpen, setIsOpen }) {
-  const { logout } = useAuth();
   const { t } = useLanguage();
   const { theme } = useTheme();
 
@@ -18,12 +16,6 @@ export default function Sidebar({ activePage, onNavigate, isOpen, setIsOpen }) {
     { id: 'tailor_analytics', label: t('analytics'), icon: BarChart3 },
     { id: 'tailor_settings', label: t('settings'), icon: Settings }
   ];
-
-  const handleLogout = () => {
-    logout();
-    onNavigate('home');
-    if (setIsOpen) setIsOpen(false);
-  };
 
   return (
     <aside className={`w-64 bg-gray-950/75 backdrop-blur-xl border-r border-white/5 h-screen flex flex-col fixed left-0 top-0 z-30 transition-transform duration-300 lg:translate-x-0 ${isOpen ? 'translate-x-0' : '-translate-x-full'}`}>
@@ -91,16 +83,7 @@ export default function Sidebar({ activePage, onNavigate, isOpen, setIsOpen }) {
         })}
       </nav>
 
-      {/* Logout button */}
-      <div className="p-4 border-t border-white/5">
-        <button
-          onClick={handleLogout}
-          className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl text-sm font-semibold text-red-400 hover:bg-red-500/10 transition cursor-pointer"
-        >
-          <LogOut className="w-4 h-4 text-red-400" />
-          <span>{t('logout')}</span>
-        </button>
-      </div>
+
 
     </aside>
   );
