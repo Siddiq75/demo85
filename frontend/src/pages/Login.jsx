@@ -358,16 +358,18 @@ export default function Login({ initialMode = 'login', onNavigate }) {
       <div className="w-full md:w-1/2 flex flex-col justify-center items-center p-4 sm:p-6 md:p-12 relative min-h-screen z-10">
         
         {/* Mobile Brand Header */}
-        <div className="md:hidden flex flex-col items-center text-center space-y-3 cursor-pointer group mb-8 mt-4" onClick={() => onNavigate('home')}>
-          <div className="flex items-center space-x-3">
-            <div className="p-2.5 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-xl text-white shadow-lg shadow-purple-600/20">
-              <Scissors className="w-5 h-5" />
-            </div>
-            <h2 className="font-heading text-2xl font-black tracking-tight text-slate-900">
+        <div className="md:hidden flex items-center space-x-3.5 cursor-pointer group mb-8 mt-2 self-start w-full pr-32" onClick={() => onNavigate('home')}>
+          <div className="p-2.5 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-xl text-white shadow-lg shadow-purple-600/20 shrink-0">
+            <Scissors className="w-5.5 h-5.5" />
+          </div>
+          <div className="text-left">
+            <h2 className="font-heading text-xl font-black tracking-tight text-slate-900 leading-none">
               VastraSilai
             </h2>
+            <span className="inline-block text-[9px] font-extrabold text-purple-600 uppercase tracking-widest bg-purple-500/10 border border-purple-500/20 px-2 py-0.5 rounded-full mt-1.5 leading-none">
+              Tailor Portal
+            </span>
           </div>
-          <span className="text-[9px] font-extrabold text-purple-600 uppercase tracking-widest bg-purple-500/10 border border-purple-500/20 px-3 py-1 rounded-full">Tailor Portal</span>
         </div>
 
         {/* Redesigned Frosted Card container with softer borders and premium gradients */}
