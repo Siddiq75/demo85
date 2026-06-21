@@ -442,7 +442,7 @@ export default function Home({ onNavigate }) {
       </header>
 
       {/* Main content wrapper */}
-      <main className="flex-grow flex flex-col justify-center px-6 md:px-16 lg:px-24 xl:px-32 2xl:px-40 py-10 w-full relative z-10 space-y-24 md:space-y-32">
+      <main className="flex-grow flex flex-col justify-center px-4 sm:px-16 lg:px-24 xl:px-32 2xl:px-40 py-10 w-full relative z-10 space-y-24 md:space-y-32">
         
         {/* Hero Section */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center w-full pt-4 md:pt-10">
@@ -456,7 +456,7 @@ export default function Home({ onNavigate }) {
                 <span>TAILORING REIMAGINED</span>
               </div>
 
-              <h1 className="font-heading text-5xl md:text-7xl font-black tracking-tight text-slate-955 leading-[1.03] select-none">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-black tracking-tight text-slate-955 leading-[1.03] select-none">
                 {t('heroTitle')}<br />
                 <span className="bg-gradient-to-r from-purple-600 via-pink-500 to-indigo-600 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(124,58,237,0.05)]">
                   {t('heroTitleAccent')}
@@ -474,10 +474,10 @@ export default function Home({ onNavigate }) {
               {/* Card 1: Enter Tailor Workspace */}
               <div 
                 onClick={() => onNavigate('login')}
-                className="light-glass-card p-6 rounded-[2rem] cursor-pointer flex items-center space-x-4.5 group text-left transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(124,58,237,0.12)] hover:border-purple-600/30"
+                className="light-glass-card p-4 sm:p-6 rounded-[2rem] cursor-pointer flex items-center space-x-3 sm:space-x-4.5 group text-left transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(124,58,237,0.12)] hover:border-purple-600/30"
               >
-                <div className="w-13 h-13 bg-purple-600/10 border border-purple-600/15 rounded-2xl flex items-center justify-center text-purple-600 shrink-0 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm shadow-purple-600/5">
-                  <Scissors className="w-6 h-6 group-hover:rotate-12 transition-transform duration-300" />
+                <div className="w-11 h-11 sm:w-13 sm:h-13 bg-purple-600/10 border border-purple-600/15 rounded-2xl flex items-center justify-center text-purple-600 shrink-0 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm shadow-purple-600/5">
+                  <Scissors className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
                 <div className="flex-grow text-left">
                   <span className="inline-block text-[9px] font-extrabold text-purple-600 uppercase tracking-widest bg-purple-500/10 rounded-md px-1.5 py-0.5 mb-1.5 leading-none">
@@ -490,18 +490,18 @@ export default function Home({ onNavigate }) {
                     {t('enterTailorDesc')}
                   </p>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-purple-600 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0 shadow-inner">
-                  <ChevronRight className="w-5 h-5" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-purple-600 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0 shadow-inner">
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
               </div>
 
               {/* Card 2: Enter Customer Portal */}
               <div 
                 onClick={() => onNavigate('customer_login')}
-                className="light-glass-card p-6 rounded-[2rem] cursor-pointer flex items-center space-x-4.5 group text-left transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(236,72,153,0.12)] hover:border-pink-500/30"
+                className="light-glass-card p-4 sm:p-6 rounded-[2rem] cursor-pointer flex items-center space-x-3 sm:space-x-4.5 group text-left transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(236,72,153,0.12)] hover:border-pink-500/30"
               >
-                <div className="w-13 h-13 bg-pink-500/10 border border-pink-500/15 rounded-2xl flex items-center justify-center text-pink-500 shrink-0 group-hover:scale-105 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300 shadow-sm shadow-pink-500/5">
-                  <Smartphone className="w-6 h-6 group-hover:-rotate-12 transition-transform duration-300" />
+                <div className="w-11 h-11 sm:w-13 sm:h-13 bg-pink-500/10 border border-pink-500/15 rounded-2xl flex items-center justify-center text-pink-500 shrink-0 group-hover:scale-105 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300 shadow-sm shadow-pink-500/5">
+                  <Smartphone className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-rotate-12 transition-transform duration-300" />
                 </div>
                 <div className="flex-grow text-left">
                   <span className="inline-block text-[9px] font-extrabold text-pink-600 uppercase tracking-widest bg-pink-500/10 rounded-md px-1.5 py-0.5 mb-1.5 leading-none">
@@ -514,8 +514,8 @@ export default function Home({ onNavigate }) {
                     {t('enterCustomerDesc')}
                   </p>
                 </div>
-                <div className="w-9 h-9 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-pink-500 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0 shadow-inner">
-                  <ChevronRight className="w-5 h-5" />
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-pink-500 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0 shadow-inner">
+                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
                 </div>
               </div>
 
@@ -556,7 +556,7 @@ export default function Home({ onNavigate }) {
                 <div 
                   key={feature.id}
                   onClick={() => setActiveFeature(feature)}
-                  className={`light-glass-card p-8 rounded-[2.5rem] group hover:scale-[1.03] hover:-translate-y-1 ${style.shadow} hover:border-transparent transition-all duration-300 flex flex-col justify-between cursor-pointer`}
+                  className={`light-glass-card p-5 sm:p-8 rounded-[1.75rem] sm:rounded-[2.5rem] group hover:scale-[1.03] hover:-translate-y-1 ${style.shadow} hover:border-transparent transition-all duration-300 flex flex-col justify-between cursor-pointer`}
                 >
                   <div>
                     <div className={`w-14 h-14 ${style.bg} border ${style.border} ${style.text} rounded-[1.25rem] flex items-center justify-center shrink-0 mb-6 ${style.hoverBg} ${style.hoverIcon} transition-all duration-300 shadow-sm shadow-purple-600/5`}>
@@ -614,7 +614,7 @@ export default function Home({ onNavigate }) {
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
               
               {/* Mission Card */}
-              <div className="light-glass-card p-7 md:p-8 rounded-[2rem] border border-purple-500/10 hover:border-purple-500/20 transition-all duration-300 flex flex-col justify-between">
+              <div className="light-glass-card p-5 sm:p-7 md:p-8 rounded-[2rem] border border-purple-500/10 hover:border-purple-500/20 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 bg-purple-500/10 border border-purple-500/15 rounded-[1.25rem] flex items-center justify-center text-purple-600 mb-5 shrink-0">
                     <Compass className="w-6.5 h-6.5" />
@@ -629,7 +629,7 @@ export default function Home({ onNavigate }) {
               </div>
 
               {/* Vision Card */}
-              <div className="light-glass-card p-7 md:p-8 rounded-[2rem] border border-pink-500/10 hover:border-pink-500/20 transition-all duration-300 flex flex-col justify-between">
+              <div className="light-glass-card p-5 sm:p-7 md:p-8 rounded-[2rem] border border-pink-500/10 hover:border-pink-500/20 transition-all duration-300 flex flex-col justify-between">
                 <div>
                   <div className="w-14 h-14 bg-pink-500/10 border border-pink-500/15 rounded-[1.25rem] flex items-center justify-center text-pink-500 mb-5 shrink-0">
                     <Award className="w-6.5 h-6.5" />
@@ -659,7 +659,7 @@ export default function Home({ onNavigate }) {
           ></div>
           
           {/* Modal Content */}
-          <div className="w-full max-w-lg rounded-3xl p-8 relative z-10 bg-white border border-slate-100 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1),_0_0_50px_rgba(124,58,237,0.06)] flex flex-col space-y-6 overflow-hidden">
+          <div className="w-full max-w-lg rounded-3xl p-5 sm:p-8 relative z-10 bg-white border border-slate-100 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1),_0_0_50px_rgba(124,58,237,0.06)] flex flex-col space-y-6 overflow-hidden">
             {/* Decorative corner glow */}
             <div className={`absolute -top-10 -right-10 w-32 h-32 rounded-full blur-2xl opacity-10 bg-${activeFeature.color}-500 pointer-events-none`}></div>
             
