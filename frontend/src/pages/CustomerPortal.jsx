@@ -23,7 +23,7 @@ export default function CustomerPortal() {
   const [chatMessages, setChatMessages] = useState([]);
   const [chatInputText, setChatInputText] = useState('');
   const [unreadChatCount, setUnreadChatCount] = useState(0);
-  const chatMessagesEndRef = useRef(null);
+  const chatFeedRef = useRef(null);
   const chatPollIntervalRef = useRef(null);
 
   const fetchChatHistory = async () => {
@@ -79,8 +79,11 @@ export default function CustomerPortal() {
     };
   }, [selectedTailor, showChatModal]);
 
+  // Scroll to bottom on customer chat messages using container scrollTop to prevent page scroll shifts
   useEffect(() => {
-    chatMessagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (chatFeedRef.current) {
+      chatFeedRef.current.scrollTop = chatFeedRef.current.scrollHeight;
+    }
   }, [chatMessages]);
 
   const formatChatTime = (isoString) => {
@@ -731,9 +734,9 @@ export default function CustomerPortal() {
                     ✕
                   </button>
                 </div>
-
+                
                 {/* Message Feed */}
-                <div className="flex-grow overflow-y-auto p-4 space-y-3 bg-transparent relative z-10">
+                <div ref={chatFeedRef} className="flex-grow overflow-y-auto p-4 space-y-3 bg-transparent relative z-10">
                   {chatMessages.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full text-slate-500 space-y-2 select-none">
                       <MessageSquare className="w-8 h-8 text-slate-700 animate-pulse" />
@@ -751,7 +754,7 @@ export default function CustomerPortal() {
                             className={`max-w-[75%] px-3.5 py-2.5 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
                               isCustomer 
                                 ? 'bg-gradient-to-br from-purple-650 to-indigo-650 text-white rounded-tr-none shadow-md shadow-purple-650/15' 
-                                : 'bg-white/10 text-gray-250 rounded-tl-none border border-white/5'
+                                : 'bg-white/10 text-gray-255 rounded-tl-none border border-white/5'
                             }`}
                           >
                             <p className="pr-10 whitespace-pre-wrap break-words leading-relaxed">
@@ -771,7 +774,6 @@ export default function CustomerPortal() {
                       );
                     })
                   )}
-                  <div ref={chatMessagesEndRef} />
                 </div>
 
                 {/* Input Footer */}

@@ -13,7 +13,7 @@ export default function ChatsPage() {
   const [messages, setMessages] = useState([]);
   const [inputText, setInputText] = useState('');
   const [searchQuery, setSearchQuery] = useState('');
-  const messagesEndRef = useRef(null);
+  const feedRef = useRef(null);
 
   // CRM & Insights state
   const [customerMeasurements, setCustomerMeasurements] = useState(null);
@@ -92,9 +92,11 @@ export default function ChatsPage() {
     };
   }, [selectedChat]);
 
-  // Scroll to bottom on new messages
+  // Scroll to bottom on new messages using direct container scrolling to avoid window scroll shifts
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    if (feedRef.current) {
+      feedRef.current.scrollTop = feedRef.current.scrollHeight;
+    }
   }, [messages]);
 
   const handleSend = async (e) => {
@@ -152,7 +154,7 @@ export default function ChatsPage() {
   };
 
   return (
-    <div className="flex h-[calc(100vh-6.5rem)] rounded-3xl border border-slate-200/80 dark:border-white/5 overflow-hidden glass-panel text-left animate-fade-in relative z-10">
+    <div className="flex h-[calc(100vh-10rem)] rounded-3xl border border-slate-200/80 dark:border-white/5 overflow-hidden glass-panel text-left animate-fade-in relative z-10">
       
       {/* LEFT PANEL: CONVERSATIONS LIST */}
       <div className="w-80 border-r border-slate-200/80 dark:border-white/5 flex flex-col h-full bg-slate-50/50 dark:bg-slate-950/20">
@@ -275,7 +277,7 @@ export default function ChatsPage() {
               </div>
 
               {/* Message Feed */}
-              <div className="flex-grow overflow-y-auto p-5 space-y-4 bg-slate-100/10 dark:bg-slate-950/25">
+              <div ref={feedRef} className="flex-grow overflow-y-auto p-5 space-y-4 bg-slate-100/10 dark:bg-slate-950/25">
                 {messages.length === 0 ? (
                   <div className="flex flex-col items-center justify-center h-full text-slate-450 dark:text-gray-550 space-y-2 select-none">
                     <MessageSquare className="w-8 h-8 text-slate-400 dark:text-slate-600" />
@@ -315,7 +317,6 @@ export default function ChatsPage() {
                     );
                   })
                 )}
-                <div ref={messagesEndRef} />
               </div>
 
               {/* Input Footer */}
