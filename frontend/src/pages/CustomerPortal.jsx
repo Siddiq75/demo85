@@ -748,25 +748,32 @@ export default function CustomerPortal() {
                       return (
                         <div 
                           key={msg.id} 
-                          className={`flex ${isCustomer ? 'justify-end' : 'justify-start'}`}
+                          className={`flex ${isCustomer ? 'justify-end' : 'justify-start'} animate-fade-in`}
                         >
                           <div 
-                            className={`max-w-[75%] min-w-[95px] px-3.5 pt-2.5 pb-6 rounded-2xl shadow-sm text-xs font-semibold text-left relative group ${
+                            className={`max-w-[75%] min-w-[125px] px-4 py-3 rounded-2xl text-xs font-semibold text-left relative transition-all duration-350 shadow-md group ${
                               isCustomer 
-                                ? 'bg-gradient-to-br from-purple-600 to-indigo-600 text-white rounded-tr-none shadow-md shadow-purple-600/15 chat-bubble-tailor' 
-                                : 'bg-white/10 text-gray-255 rounded-tl-none border border-white/5 chat-bubble-customer'
+                                ? 'rounded-tr-none chat-bubble-tailor hover:shadow-purple-500/30' 
+                                : 'rounded-tl-none chat-bubble-customer hover:shadow-slate-400/20'
                             }`}
+                            style={isCustomer ? { color: '#ffffff' } : {}}
                           >
-                            <p className="whitespace-pre-wrap break-words leading-relaxed">
+                            <div 
+                              className="whitespace-pre-wrap break-words leading-relaxed font-sans pr-2"
+                              style={isCustomer ? { color: '#ffffff' } : {}}
+                            >
                               {msg.message_text}
-                            </p>
+                            </div>
                             
-                            <div className="absolute right-2 bottom-1.5 flex items-center space-x-1 text-[9px] text-white/50 select-none">
-                              <span>{formatChatTime(msg.timestamp)}</span>
+                            <div 
+                              className="mt-2.5 flex items-center justify-end space-x-1 text-[9px] select-none opacity-70 group-hover:opacity-95 transition-opacity"
+                              style={isCustomer ? { color: 'rgba(255, 255, 255, 0.7)' } : {}}
+                            >
+                              <small className="font-semibold" style={isCustomer ? { color: 'rgba(255, 255, 255, 0.7)' } : {}}>{formatChatTime(msg.timestamp)}</small>
                               {isCustomer && (
                                 msg.is_read 
                                   ? <CheckCheck className="w-3.5 h-3.5 text-emerald-400" /> 
-                                  : <Check className="w-3.5 h-3.5 text-white/40" />
+                                  : <Check className="w-3.5 h-3.5" style={{ color: 'rgba(255, 255, 255, 0.7)' }} />
                               )}
                             </div>
                           </div>

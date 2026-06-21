@@ -1755,21 +1755,93 @@ html.light .chart-tooltip-text {
   }
 }
 
-/* Custom Chat Bubble legibility overrides for tailor and customer messaging */
-.chat-bubble-tailor, 
-.chat-bubble-tailor * {
+/* Custom Chat Bubble premium styles with native theme overrides */
+.chat-bubble-tailor {
+  background: linear-gradient(135deg, #a855f7 0%, #6366f1 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(168, 85, 247, 0.22) !important;
+}
+
+.chat-bubble-tailor,
+.chat-bubble-tailor *,
+.chat-bubble-tailor p,
+.chat-bubble-tailor span,
+.chat-bubble-tailor div,
+.chat-bubble-tailor small,
+.chat-bubble-tailor strong {
   color: #ffffff !important;
 }
 
+.chat-bubble-customer {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1e293b !important;
+  border: 1px solid rgba(168, 85, 247, 0.16) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+}
+
 .chat-bubble-customer,
-.chat-bubble-customer * {
+.chat-bubble-customer *,
+.chat-bubble-customer p,
+.chat-bubble-customer span,
+.chat-bubble-customer div,
+.chat-bubble-customer small,
+.chat-bubble-customer strong {
   color: #1e293b !important;
 }
 
+/* Dark theme overrides for chat bubbles */
+.dark .chat-bubble-customer {
+  background: rgba(255, 255, 255, 0.07) !important;
+  color: #f1f5f9 !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  box-shadow: none !important;
+}
+
 .dark .chat-bubble-customer,
-.dark .chat-bubble-customer * {
+.dark .chat-bubble-customer *,
+.dark .chat-bubble-customer p,
+.dark .chat-bubble-customer span,
+.dark .chat-bubble-customer div,
+.dark .chat-bubble-customer small,
+.dark .chat-bubble-customer strong {
   color: #f1f5f9 !important;
 }
+
+/* Explicit Light Mode overrides for chat bubbles (safeguard against global html.light overrides) */
+html.light .chat-bubble-tailor {
+  background: linear-gradient(135deg, #9333ea 0%, #4f46e5 100%) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: 0 4px 15px rgba(147, 51, 234, 0.2) !important;
+}
+
+html.light .chat-bubble-tailor *,
+html.light .chat-bubble-tailor p,
+html.light .chat-bubble-tailor span,
+html.light .chat-bubble-tailor div,
+html.light .chat-bubble-tailor small,
+html.light .chat-bubble-tailor strong {
+  color: #ffffff !important;
+}
+
+html.light .chat-bubble-customer {
+  background: rgba(255, 255, 255, 0.95) !important;
+  color: #1e293b !important;
+  border: 1px solid rgba(147, 51, 234, 0.16) !important;
+  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.03) !important;
+}
+
+html.light .chat-bubble-customer *,
+html.light .chat-bubble-customer p,
+html.light .chat-bubble-customer span,
+html.light .chat-bubble-customer div,
+html.light .chat-bubble-customer small,
+html.light .chat-bubble-customer strong {
+  color: #1e293b !important;
+}
+
+
 
 
 
