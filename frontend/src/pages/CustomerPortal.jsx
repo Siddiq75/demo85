@@ -244,7 +244,7 @@ export default function CustomerPortal() {
                   {dashboardData?.customer_name || user?.name}
                 </h2>
                 <p className="text-xs text-gray-550 dark:text-gray-400 font-bold mt-1 flex items-center">
-                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2 animate-pulse"></span>
+                  <span className="inline-block w-2.5 h-2.5 rounded-full bg-emerald-500 mr-2 shadow-sm shadow-emerald-500/50"></span>
                   Linked Phone: <span className="text-gray-700 dark:text-gray-350 font-extrabold ml-1">{user?.phone}</span>
                 </p>
               </div>
@@ -418,7 +418,7 @@ export default function CustomerPortal() {
               <div className="p-3 bg-pink-100 dark:bg-pink-950/40 text-pink-600 dark:text-pink-400 rounded-2xl shadow-sm shadow-pink-655/5 relative">
                 <Bell className="w-6 h-6" strokeWidth={2.2} />
                 {dashboardData?.notifications.length > 0 && (
-                  <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 rounded-full bg-pink-500 animate-ping"></span>
+                  <span className="absolute top-2.5 right-2.5 w-2.5 h-2.5 rounded-full bg-pink-500 shadow-sm shadow-pink-500/50"></span>
                 )}
               </div>
               <div>
@@ -683,9 +683,8 @@ export default function CustomerPortal() {
       {selectedTailor && dashboardData && dashboardData.is_registered && (
         <>
           <div className="fixed bottom-6 right-6 z-40 flex items-center justify-center">
-            {/* Pulsing glow ripples */}
-            <span className="absolute w-14 h-14 rounded-full bg-purple-600/30 dark:bg-purple-500/20 animate-ping pointer-events-none"></span>
-            <span className="absolute w-16 h-16 rounded-full bg-pink-500/10 animate-[ping_2s_infinite_1s] pointer-events-none"></span>
+            {/* Ambient static glows */}
+            <span className="absolute w-14 h-14 rounded-full bg-purple-600/20 dark:bg-purple-500/10 pointer-events-none shadow-lg shadow-purple-500/10"></span>
             
             <button
               onClick={() => setShowChatModal(true)}
@@ -695,7 +694,7 @@ export default function CustomerPortal() {
               <div className="relative">
                 <MessageSquare className="w-6 h-6" />
                 {unreadChatCount > 0 && (
-                  <span className="absolute -top-3.5 -right-3.5 bg-gradient-to-r from-red-500 to-pink-500 text-white font-black text-[9px] w-5.5 h-5.5 rounded-full flex items-center justify-center border-2 border-slate-950 shadow-md shadow-pink-500/25 animate-bounce">
+                  <span className="absolute -top-3.5 -right-3.5 bg-gradient-to-r from-red-500 to-pink-500 text-white font-black text-[9px] w-5.5 h-5.5 rounded-full flex items-center justify-center border-2 border-slate-950 shadow-md shadow-pink-500/25">
                     {unreadChatCount}
                   </span>
                 )}
@@ -741,7 +740,7 @@ export default function CustomerPortal() {
                 <div ref={chatFeedRef} className="flex-grow overflow-y-auto p-4 space-y-3 bg-transparent relative z-10">
                   {chatMessages.length === 0 ? (
                     <div className="flex flex-col items-center justify-center h-full text-slate-400 dark:text-gray-500 space-y-2 select-none">
-                      <MessageSquare className="w-8 h-8 text-slate-400 dark:text-slate-650 animate-pulse" />
+                      <MessageSquare className="w-8 h-8 text-slate-400 dark:text-slate-650" />
                       <p className="text-xs">{t('noMessagesYet')}</p>
                     </div>
                   ) : (
