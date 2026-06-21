@@ -1524,7 +1524,7 @@ html.light .chart-tooltip-text {
   }
 
   /* Scale down general dashboard panels & cards padding */
-  .glass-panel {
+  .glass-panel:not(input):not(select):not(textarea) {
     padding: 1.25rem !important; /* from p-6 to p-5 */
   }
 
