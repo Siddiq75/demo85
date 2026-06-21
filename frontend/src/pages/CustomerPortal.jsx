@@ -707,7 +707,7 @@ export default function CustomerPortal() {
           {showChatModal && (
             <div className="fixed inset-0 bg-slate-950/80 backdrop-blur-md z-50 overflow-hidden flex justify-end p-4 md:p-6 text-left animate-fade-in">
               <div 
-                className="w-full max-w-md bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-955 border border-slate-200/80 dark:border-white/10 rounded-3xl flex flex-col h-full overflow-hidden shadow-2xl relative text-left transition-all duration-300"
+                className="w-full max-w-md bg-gradient-to-b from-white to-slate-50 dark:from-slate-900 dark:to-slate-950 border border-slate-200/80 dark:border-white/10 rounded-3xl flex flex-col h-full overflow-hidden shadow-2xl relative text-left transition-all duration-300"
               >
                 {/* Decorative background design & ambient glows */}
                 <div className="absolute inset-0 bg-stitch-grid pointer-events-none opacity-30 dark:opacity-20 -z-10"></div>
@@ -724,7 +724,7 @@ export default function CustomerPortal() {
                       <h4 className="text-sm font-black text-slate-800 dark:text-white font-heading leading-tight">
                         {selectedTailor.shop_name || selectedTailor.name}
                       </h4>
-                      <span className="text-[10px] text-purple-650 dark:text-purple-400 font-extrabold block mt-0.5 uppercase tracking-wider">
+                      <span className="text-[10px] text-purple-600 dark:text-purple-400 font-extrabold block mt-0.5 uppercase tracking-wider">
                         Tailor Shop Chat
                       </span>
                     </div>
@@ -740,7 +740,7 @@ export default function CustomerPortal() {
                 {/* Message Feed */}
                 <div ref={chatFeedRef} className="flex-grow overflow-y-auto p-4 space-y-3 bg-transparent relative z-10">
                   {chatMessages.length === 0 ? (
-                    <div className="flex flex-col items-center justify-center h-full text-slate-450 dark:text-gray-550 space-y-2 select-none">
+                    <div className="flex flex-col items-center justify-center h-full text-slate-400 dark:text-gray-500 space-y-2 select-none">
                       <MessageSquare className="w-8 h-8 text-slate-400 dark:text-slate-650 animate-pulse" />
                       <p className="text-xs">{t('noMessagesYet')}</p>
                     </div>
@@ -756,7 +756,7 @@ export default function CustomerPortal() {
                             className={`max-w-[75%] min-w-[125px] px-4 py-3 rounded-2xl text-xs font-semibold text-left relative transition-all duration-300 shadow-md hover:scale-[1.01] hover:shadow-lg group ${
                               isCustomer 
                                 ? 'rounded-tr-none chat-bubble-tailor hover:shadow-purple-500/30' 
-                                : 'rounded-tl-none chat-bubble-customer hover:shadow-slate-450/20'
+                                : 'rounded-tl-none chat-bubble-customer hover:shadow-slate-400/20'
                             }`}
                             style={isCustomer ? { color: '#ffffff' } : {}}
                           >
@@ -774,7 +774,7 @@ export default function CustomerPortal() {
                               <small className="font-semibold" style={isCustomer ? { color: 'rgba(255, 255, 255, 0.7)' } : {}}>{formatChatTime(msg.timestamp)}</small>
                               {isCustomer && (
                                 msg.is_read 
-                                  ? <CheckCheck className="w-3.5 h-3.5 text-emerald-455" /> 
+                                  ? <CheckCheck className="w-3.5 h-3.5 text-emerald-500" /> 
                                   : <Check className="w-3.5 h-3.5" style={{ color: 'rgba(255, 255, 255, 0.7)' }} />
                               )}
                             </div>
@@ -789,18 +789,18 @@ export default function CustomerPortal() {
                 <div className="p-4 bg-transparent border-t-0 z-20">
                   <form 
                     onSubmit={handleSendChatMessage} 
-                    className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-250/70 dark:border-white/10 rounded-[2rem] p-1.5 flex items-center space-x-2 shadow-xl shadow-purple-500/5 hover:border-purple-500/30 dark:hover:border-purple-500/30 focus-within:border-purple-500/50 focus-within:ring-4 focus-within:ring-purple-500/10 transition-all duration-300"
+                    className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border border-slate-200/70 dark:border-white/10 rounded-[2rem] p-1.5 flex items-center space-x-2 shadow-xl shadow-purple-500/5 hover:border-purple-500/30 dark:hover:border-purple-500/30 focus-within:border-purple-500/50 focus-within:ring-4 focus-within:ring-purple-500/10 transition-all duration-300"
                   >
                     <input
                       type="text"
                       value={chatInputText}
-                      onChange={(e) => setInputText(e.target.value)}
+                      onChange={(e) => setChatInputText(e.target.value)}
                       placeholder={t('typeMessage') || 'Type a message...'}
-                      className="flex-grow bg-transparent border-none rounded-2xl px-4 py-2.5 text-xs text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-550 focus:outline-none focus:ring-0"
+                      className="flex-grow bg-transparent border-none rounded-2xl px-4 py-2.5 text-xs text-slate-800 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-0"
                     />
                     <button
                       type="submit"
-                      className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-650 to-indigo-650 hover:from-purple-550 hover:to-indigo-550 text-white flex items-center justify-center transition-all shadow-md shadow-purple-500/25 cursor-pointer active:scale-95 hover:scale-105 shrink-0"
+                      className="w-9 h-9 rounded-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white flex items-center justify-center transition-all shadow-md shadow-purple-500/20 cursor-pointer active:scale-95 hover:scale-105 shrink-0"
                     >
                       <Send className="w-3.5 h-3.5" />
                     </button>
