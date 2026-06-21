@@ -406,7 +406,7 @@ export default function RollingGlobe() {
   return (
     <div 
       ref={containerRef} 
-      className="relative w-full h-[400px] sm:h-[520px] md:h-[580px] lg:h-[650px] xl:h-[720px] max-w-[720px] flex items-center justify-center select-none cursor-pointer"
+      className="relative w-full aspect-square max-w-[720px] flex items-center justify-center select-none cursor-pointer"
       style={{
         perspective: '1000px'
       }}
