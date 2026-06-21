@@ -26,12 +26,14 @@ import {
   ShieldCheck,
   ChevronRight,
   Compass,
-  ShoppingBag
+  ShoppingBag,
+  Menu
 } from 'lucide-react';
 import RollingGlobe from '../components/RollingGlobe';
 
 export default function Home({ onNavigate }) {
   const { t, language, changeLanguage } = useLanguage();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   // Split the translated strings for cleaner stats display
   const stichesSavedParts = t('stichesSaved').split(' ');
@@ -360,13 +362,13 @@ export default function Home({ onNavigate }) {
           </div>
         </div>
  
-        {/* Header Options */}
-        <div className="flex items-center space-x-3 md:space-x-5">
+        {/* Header Options - Hidden on mobile, flex on md and above */}
+        <div className="hidden md:flex items-center space-x-3 md:space-x-5">
           
           {/* Features Navigation Link */}
           <a
             href="#features"
-            className="hidden md:flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-purple-600 transition duration-200 cursor-pointer select-none"
+            className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-purple-600 transition duration-200 cursor-pointer select-none"
           >
             <Compass className="w-5 h-5 text-purple-600 animate-spin" style={{ animationDuration: '8s' }} />
             <span>{t('navFeatures')}</span>
@@ -375,7 +377,7 @@ export default function Home({ onNavigate }) {
           {/* About Us Navigation Link */}
           <a
             href="#about"
-            className="hidden md:flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-pink-600 transition duration-200 cursor-pointer select-none"
+            className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-pink-600 transition duration-200 cursor-pointer select-none"
           >
             <Award className="w-5 h-5 text-pink-500" />
             <span>{t('navAbout')}</span>
@@ -428,7 +430,7 @@ export default function Home({ onNavigate }) {
             className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-pink-600 transition cursor-pointer select-none"
           >
             <Smartphone className="w-5 h-5 text-pink-500" />
-            <span className="hidden sm:inline">{t('customerPortal')}</span>
+            <span>{t('customerPortal')}</span>
           </button>
 
           <button
@@ -436,10 +438,125 @@ export default function Home({ onNavigate }) {
             className="flex items-center space-x-2.5 bg-white/60 hover:bg-white/80 border border-slate-200/80 rounded-2xl px-4 py-3 md:px-5.5 md:py-4 text-sm md:text-base font-extrabold text-slate-700 hover:text-purple-600 transition cursor-pointer select-none"
           >
             <Scissors className="w-5 h-5 text-purple-600" />
-            <span className="hidden sm:inline">{t('tailorPortal')}</span>
+            <span>{t('tailorPortal')}</span>
           </button>
         </div>
+
+        {/* Mobile Hamburger Menu Button - Visible only on mobile/tablet */}
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          className="md:hidden p-3 bg-white/60 border border-slate-200/80 hover:bg-white/80 rounded-2xl text-slate-700 hover:text-purple-600 transition cursor-pointer select-none"
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X className="w-5.5 h-5.5" /> : <Menu className="w-5.5 h-5.5" />}
+        </button>
       </header>
+
+      {/* Mobile Drawer Overlay */}
+      {mobileMenuOpen && (
+        <div className="fixed inset-0 z-[120] bg-white/98 backdrop-blur-xl flex flex-col p-6 overflow-y-auto animate-fade-in md:hidden">
+          {/* Top Bar inside Overlay */}
+          <div className="flex justify-between items-center mb-10">
+            {/* Brand Logo in Drawer */}
+            <div className="flex items-center space-x-3.5">
+              <div className="p-3 bg-gradient-to-tr from-purple-600 to-indigo-600 rounded-2xl text-white shadow-lg">
+                <Scissors className="w-5.5 h-5.5" />
+              </div>
+              <div className="text-left">
+                <span className="font-heading text-xl font-black tracking-tight text-slate-900 flex items-center">
+                  VastraSilai
+                  <span className="text-purple-600 ml-0.5 text-xs font-bold font-sans">⁺</span>
+                </span>
+                <span className="block text-[10px] font-extrabold tracking-widest text-purple-600 uppercase leading-none mt-1">
+                  TAILOR PORTAL
+                </span>
+              </div>
+            </div>
+            {/* Close Button */}
+            <button
+              onClick={() => setMobileMenuOpen(false)}
+              className="p-3 bg-slate-50 border border-slate-200/80 rounded-2xl text-slate-700 hover:text-purple-600 hover:bg-slate-100 transition cursor-pointer"
+            >
+              <X className="w-5.5 h-5.5" />
+            </button>
+          </div>
+
+          {/* Navigation Links */}
+          <div className="flex flex-col space-y-4 mb-8">
+            <span className="text-xs font-black tracking-widest text-slate-400 uppercase">
+              {language === 'en' ? 'NAVIGATION' : language === 'hi' ? 'नेविगेशन' : 'నావిగేషన్'}
+            </span>
+            <a
+              href="#features"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center space-x-3 p-4 bg-slate-50 hover:bg-purple-50 rounded-2xl text-base font-extrabold text-slate-700 hover:text-purple-600 transition"
+            >
+              <Compass className="w-5 h-5 text-purple-600" />
+              <span>{t('navFeatures')}</span>
+            </a>
+            <a
+              href="#about"
+              onClick={() => setMobileMenuOpen(false)}
+              className="flex items-center space-x-3 p-4 bg-slate-50 hover:bg-pink-50 rounded-2xl text-base font-extrabold text-slate-700 hover:text-pink-600 transition"
+            >
+              <Award className="w-5 h-5 text-pink-500" />
+              <span>{t('navAbout')}</span>
+            </a>
+          </div>
+
+          {/* Language Selection */}
+          <div className="space-y-3 mb-8">
+            <span className="block text-xs font-black tracking-widest text-slate-400 uppercase">
+              {language === 'en' ? 'CHOOSE LANGUAGE' : language === 'hi' ? 'भाषा चुनें' : 'భాషను ఎంచుకోండి'}
+            </span>
+            <div className="grid grid-cols-3 gap-2">
+              {langOptions.map((opt) => (
+                <button
+                  key={opt.code}
+                  onClick={() => {
+                    changeLanguage(opt.code);
+                  }}
+                  className={`py-3.5 rounded-xl text-sm font-extrabold transition flex flex-col items-center justify-center border ${
+                    language === opt.code
+                      ? 'bg-purple-50 text-purple-700 border-purple-200'
+                      : 'bg-slate-50 text-slate-600 border-slate-100 hover:bg-slate-100'
+                  }`}
+                >
+                  <span className="text-[10px] opacity-70 mb-0.5">{opt.short}</span>
+                  <span className="text-xs">{opt.label.split(' ')[0]}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Portals */}
+          <div className="flex flex-col space-y-4 pt-6 border-t border-slate-100 mt-auto">
+            <span className="text-xs font-black tracking-widest text-slate-400 uppercase text-left">
+              {language === 'en' ? 'PORTALS' : language === 'hi' ? 'पोर्टल' : 'పోర్టల్స్'}
+            </span>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onNavigate('customer_login');
+              }}
+              className="flex items-center justify-center space-x-2.5 bg-gradient-to-r from-pink-500/10 to-rose-500/10 border border-pink-500/20 text-pink-600 font-extrabold py-4 px-6 rounded-2xl hover:bg-pink-50 transition"
+            >
+              <Smartphone className="w-5 h-5 text-pink-500" />
+              <span>{t('customerPortal')}</span>
+            </button>
+            <button
+              onClick={() => {
+                setMobileMenuOpen(false);
+                onNavigate('login');
+              }}
+              className="flex items-center justify-center space-x-2.5 bg-gradient-to-r from-purple-500/10 to-indigo-500/10 border border-purple-500/20 text-purple-600 font-extrabold py-4 px-6 rounded-2xl hover:bg-purple-50 transition"
+            >
+              <Scissors className="w-5 h-5 text-purple-600" />
+              <span>{t('tailorPortal')}</span>
+            </button>
+          </div>
+        </div>
+      )}
 
       {/* Main content wrapper */}
       <main className="flex-grow flex flex-col justify-center px-4 sm:px-16 lg:px-24 xl:px-32 2xl:px-40 py-10 w-full relative z-10 space-y-24 md:space-y-32">
