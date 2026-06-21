@@ -586,53 +586,53 @@ export default function Home({ onNavigate }) {
             </div>
 
             {/* Private Portal Access Channels - First to left, second to right */}
-            <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-6">
+            <div className="w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-6">
               
               {/* Card 1: Enter Tailor Workspace */}
               <div 
                 onClick={() => onNavigate('login')}
-                className="light-glass-card p-4 sm:p-6 rounded-[2rem] cursor-pointer flex items-center space-x-3 sm:space-x-4.5 group text-left transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(124,58,237,0.12)] hover:border-purple-600/30"
+                className="light-glass-card p-3.5 sm:p-5 rounded-3xl cursor-pointer flex items-center space-x-3 sm:space-x-4 group text-left transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-[0_15px_35px_rgba(124,58,237,0.1)] hover:border-purple-600/25"
               >
-                <div className="w-11 h-11 sm:w-13 sm:h-13 bg-purple-600/10 border border-purple-600/15 rounded-2xl flex items-center justify-center text-purple-600 shrink-0 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm shadow-purple-600/5">
-                  <Scissors className="w-5 h-5 sm:w-6 sm:h-6 group-hover:rotate-12 transition-transform duration-300" />
+                <div className="w-10 h-10 sm:w-11 sm:h-11 bg-purple-600/10 border border-purple-600/15 rounded-xl flex items-center justify-center text-purple-600 shrink-0 group-hover:scale-105 group-hover:bg-purple-600 group-hover:text-white transition-all duration-300 shadow-sm shadow-purple-600/5">
+                  <Scissors className="w-4.5 h-4.5 sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform duration-300" />
                 </div>
-                <div className="flex-grow text-left">
-                  <span className="inline-block text-[9px] font-extrabold text-purple-600 uppercase tracking-widest bg-purple-500/10 rounded-md px-1.5 py-0.5 mb-1.5 leading-none">
+                <div className="flex-grow text-left min-w-0">
+                  <span className="inline-block text-[8px] font-extrabold text-purple-600 uppercase tracking-widest bg-purple-500/10 rounded-md px-1.5 py-0.5 mb-1 leading-none">
                     FOR TAILORS
                   </span>
-                  <h4 className="text-slate-900 font-black text-lg leading-tight group-hover:text-purple-600 transition-colors">
+                  <h4 className="text-slate-900 font-extrabold text-base leading-tight group-hover:text-purple-600 transition-colors truncate">
                     {t('enterTailor')}
                   </h4>
-                  <p className="text-slate-500 text-xs mt-1 leading-snug">
+                  <p className="text-slate-500 text-[11px] sm:text-xs mt-0.5 leading-snug">
                     {t('enterTailorDesc')}
                   </p>
                 </div>
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-purple-600 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0 shadow-inner">
-                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-purple-600 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 shrink-0 shadow-inner">
+                  <ChevronRight className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
                 </div>
               </div>
 
               {/* Card 2: Enter Customer Portal */}
               <div 
                 onClick={() => onNavigate('customer_login')}
-                className="light-glass-card p-4 sm:p-6 rounded-[2rem] cursor-pointer flex items-center space-x-3 sm:space-x-4.5 group text-left transition-all duration-300 hover:scale-[1.03] hover:-translate-y-1 hover:shadow-[0_20px_45px_rgba(236,72,153,0.12)] hover:border-pink-500/30"
+                className="light-glass-card p-3.5 sm:p-5 rounded-3xl cursor-pointer flex items-center space-x-3 sm:space-x-4 group text-left transition-all duration-300 hover:scale-[1.02] hover:-translate-y-0.5 hover:shadow-[0_15px_35px_rgba(236,72,153,0.1)] hover:border-pink-500/25"
               >
-                <div className="w-11 h-11 sm:w-13 sm:h-13 bg-pink-500/10 border border-pink-500/15 rounded-2xl flex items-center justify-center text-pink-500 shrink-0 group-hover:scale-105 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300 shadow-sm shadow-pink-500/5">
-                  <Smartphone className="w-5 h-5 sm:w-6 sm:h-6 group-hover:-rotate-12 transition-transform duration-300" />
+                <div className="w-10 h-10 sm:w-11 sm:h-11 bg-pink-500/10 border border-pink-500/15 rounded-xl flex items-center justify-center text-pink-500 shrink-0 group-hover:scale-105 group-hover:bg-pink-500 group-hover:text-white transition-all duration-300 shadow-sm shadow-pink-500/5">
+                  <Smartphone className="w-4.5 h-4.5 sm:w-5 sm:h-5 group-hover:-rotate-12 transition-transform duration-300" />
                 </div>
-                <div className="flex-grow text-left">
-                  <span className="inline-block text-[9px] font-extrabold text-pink-600 uppercase tracking-widest bg-pink-500/10 rounded-md px-1.5 py-0.5 mb-1.5 leading-none">
+                <div className="flex-grow text-left min-w-0">
+                  <span className="inline-block text-[8px] font-extrabold text-pink-600 uppercase tracking-widest bg-pink-500/10 rounded-md px-1.5 py-0.5 mb-1 leading-none">
                     FOR CUSTOMERS
                   </span>
-                  <h4 className="text-slate-900 font-black text-lg leading-tight group-hover:text-pink-600 transition-colors">
+                  <h4 className="text-slate-900 font-extrabold text-base leading-tight group-hover:text-pink-600 transition-colors truncate">
                     {t('enterCustomer')}
                   </h4>
-                  <p className="text-slate-500 text-xs mt-1 leading-snug">
+                  <p className="text-slate-500 text-[11px] sm:text-xs mt-0.5 leading-snug">
                     {t('enterCustomerDesc')}
                   </p>
                 </div>
-                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-pink-500 group-hover:text-white group-hover:translate-x-1.5 transition-all duration-300 shrink-0 shadow-inner">
-                  <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-slate-100/80 flex items-center justify-center text-slate-500 group-hover:bg-pink-500 group-hover:text-white group-hover:translate-x-1 transition-all duration-300 shrink-0 shadow-inner">
+                  <ChevronRight className="w-3.5 h-3.5 sm:w-4.5 sm:h-4.5" />
                 </div>
               </div>
 
