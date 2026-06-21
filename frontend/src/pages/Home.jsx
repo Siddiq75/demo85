@@ -672,8 +672,7 @@ export default function Home({ onNavigate }) {
               return (
                 <div 
                   key={feature.id}
-                  onClick={() => setActiveFeature(feature)}
-                  className={`light-glass-card p-5 sm:p-8 rounded-[1.75rem] sm:rounded-[2.5rem] group hover:scale-[1.03] hover:-translate-y-1 ${style.shadow} hover:border-transparent transition-all duration-300 flex flex-col justify-between cursor-pointer`}
+                  className={`light-glass-card p-5 sm:p-8 rounded-[1.75rem] sm:rounded-[2.5rem] group hover:scale-[1.03] hover:-translate-y-1 ${style.shadow} hover:border-transparent transition-all duration-300 flex flex-col justify-between`}
                 >
                   <div>
                     <div className={`w-14 h-14 ${style.bg} border ${style.border} ${style.text} rounded-[1.25rem] flex items-center justify-center shrink-0 mb-6 ${style.hoverBg} ${style.hoverIcon} transition-all duration-300 shadow-sm shadow-purple-600/5`}>
